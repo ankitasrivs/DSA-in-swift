@@ -18,3 +18,31 @@ func star1(i: Int) {
 star1(i: 4)
 
 
+
+/*
+ * * * * 
+*       * 
+*       * 
+*       * 
+* * * * * 
+*/
+
+
+func star2(i: Int) {
+    for k in 0..<i {
+        for j in 0..<i {
+
+            if k == 0 || k == i-1 || j == 0 || j == i - 1 {
+
+                print("*", terminator: " ")
+            } else {
+                print(" ", terminator: " ")
+            }
+        }
+        print()
+    }
+}
+star2(i: 5)
+
+
+
