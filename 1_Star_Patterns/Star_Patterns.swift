@@ -145,7 +145,27 @@ func star7(i: Int) {
     }
 }
 star7(i: 5)
+/*
+1
+23
+456
+78910
+1112131415
+*/
 
+
+func star8(i: Int) {
+var f = 1
+    for k in 1...i {
+
+        for j in 1...k {
+            print("\(f)", terminator: "")
+            f += 1
+        }
+        print()
+    }
+}
+star8(i: 5)
 
 
 
