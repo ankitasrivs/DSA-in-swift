@@ -106,6 +106,26 @@ func star5(i: Int) {
     }
 }
 star5(i: 5)
+/*
+1 1 1 1 1 
+2 2 2 2 2 
+3 3 3 3 3 
+4 4 4 4 4 
+5 5 5 5 5 
+*/
+
+func star6(i: Int) {
+
+    for k in 1...i {
+
+        for j in 1...i {
+            print("\(k)", terminator: " ")
+        }
+        print()
+    }
+}
+star6(i: 5)
+
 
 
 
