@@ -304,3 +304,47 @@ func star12(i: Int) {
 
 }
 star12(i: 5)
+
+/*
+        * 
+      * * 
+    * * * 
+  * * * * 
+* * * * * 
+  * * * * 
+    * * * 
+      * * 
+        * 
+*/
+
+func star13(i: Int) {
+
+    for k in (1...i) {
+        if i - k >= 1 {
+            for j in 1...i-k {
+                print(" ", terminator: " ")
+            }
+        }
+
+        for j in 1...k {
+            print("*", terminator: " ")
+        }
+        print()
+    }
+
+
+    for k in (1...i-1).reversed() {
+        if i - k >= 1 {
+            for j in 1...i-k {
+                print(" ", terminator: " ")
+            }
+        }
+
+        for j in 1...k {
+            print("*", terminator: " ")
+        }
+        print()
+    }
+
+}
+star13(i: 5)
