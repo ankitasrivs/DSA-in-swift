@@ -394,3 +394,32 @@ func star15(i: Int, j: Int) {
 
 }
 star15(i: 5, j: 4)
+/*
+        * 
+      * * * 
+    * * * * * 
+  * * * * * * * 
+* * * * * * * * * 
+
+*/
+
+func star16(i: Int) {
+
+    for k in 1...i {
+        if i-k >= 1 {
+            for h in 1...i-k {
+                print(" ",terminator: " ")
+            }
+        }
+
+
+            for h in (1...(2*k)-1) {
+                print("*", terminator: " ")
+            }
+
+        print()
+
+    }
+
+}
+star16(i: 5)
