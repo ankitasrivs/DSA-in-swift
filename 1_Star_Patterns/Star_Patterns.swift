@@ -517,5 +517,58 @@ func star19(i: Int) {
 
 }
 star19(i: 5)
+/*
+       * 
+      * * * 
+    * * * * * 
+  * * * * * * * 
+* * * * * * * * * 
+  * * * * * * * 
+    * * * * * 
+      * * * 
+        * 
+*/
+
+func star20(i: Int) {
+    for k in (1...i){
+        if i-k >= 1 {
+            for h in 1...i-k {
+                print(" ",terminator: " ")
+            }
+        }
+
+
+        for h in (1...(2*k)-1) {
+
+                    print("*", terminator: " ")
+
+            }
+
+        print()
+
+    }
+    for k in (1...i-1).reversed() {
+        if i-k >= 1 {
+            for h in 1...i-k {
+                print(" ",terminator: " ")
+            }
+        }
+
+
+        for h in (1...(2*k)-1) {
+
+                    print("*", terminator: " ")
+
+            }
+
+        print()
+
+    }
+
+
+    
+
+}
+star20(i: 5)
 
 
