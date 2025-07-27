@@ -213,3 +213,25 @@ star(i: 5)
 
 
 
+/*
+3 
+4 5 
+6 7 8 
+9 10 11 12 
+13 14 15 16 17 
+*/
+
+func star10(i: Int) {
+var f = 3
+    for k in (1...i) {
+
+        for j in 1...k {
+            print("\(f)", terminator: " ")
+            f += 1
+
+        }
+
+        print()
+    }
+}
+star10(i: 5)
