@@ -235,3 +235,43 @@ var f = 3
     }
 }
 star10(i: 5)
+
+/*
+3 
+4 4 
+5 5 5 
+6 6 6 6 
+7 7 7 7 7 
+6 6 6 6 
+5 5 5 
+4 4 
+3 
+*/
+
+func star11(i: Int) {
+var f = 3
+    for k in (1...i) {
+
+        for j in 1...k {
+            print("\(f)", terminator: " ")
+
+
+        }
+        f += 1
+        print()
+    }
+
+    f -= 2
+    for k in (1..<i).reversed() {
+
+        for j in 1...k {
+            print("\(f)", terminator: " ")
+
+
+        }
+        f -= 1
+        print()
+    }
+
+}
+star11(i: 5)
