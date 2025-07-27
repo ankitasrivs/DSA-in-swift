@@ -488,4 +488,34 @@ func star18(i: Int) {
 }
 star18(i: 5)
 
+/*
+* * * * * * * * * 
+  * * * * * * * 
+    * * * * * 
+      * * * 
+        * 
+*/
+func star19(i: Int) {
+
+    for k in (1...i).reversed() {
+        if i-k >= 1 {
+            for h in 1...i-k {
+                print(" ",terminator: " ")
+            }
+        }
+
+
+        for h in (1...(2*k)-1) {
+              
+                    print("*", terminator: " ")
+
+            }
+
+        print()
+
+    }
+
+}
+star19(i: 5)
+
 
