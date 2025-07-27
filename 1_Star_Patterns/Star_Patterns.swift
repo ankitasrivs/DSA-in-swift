@@ -275,3 +275,32 @@ var f = 3
 
 }
 star11(i: 5)
+/*
+* 
+* * 
+* * * 
+* * * * 
+* * * * * 
+* * * * 
+* * * 
+* * 
+* 
+*/
+func star12(i: Int) {
+
+    for k in (1...i) {
+        for j in 1...k {
+            print("*", terminator: " ")
+        }
+        print()
+    }
+
+    for k in (1..<i).reversed() {
+        for j in 1...k {
+            print("*", terminator: " ")
+        }
+        print()
+    }
+
+}
+star12(i: 5)
