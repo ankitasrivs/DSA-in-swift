@@ -373,3 +373,24 @@ func star14(i: Int, j: Int) {
 }
 star14(i: 5, j: 4)
 
+/*
+  * * * * 
+    * * * * 
+      * * * * 
+        * * * * 
+          * * * * 
+*/
+func star15(i: Int, j: Int) {
+
+    for k in 1...i {
+        for h in 1...k {
+            print(" ", terminator: " ")
+        }
+        for h in 1...j {
+            print("*", terminator: " ")
+        }
+        print()
+    }
+
+}
+star15(i: 5, j: 4)
