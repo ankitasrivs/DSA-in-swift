@@ -616,5 +616,25 @@ func star21(i: Int) {
 
 }
 star21(i: 5)
+/*
+1*2*3*4*5
+6*7*8*9*10
+11*12*13*14*15
+16*17*18*19*20
+21*22*23*24*25
+*/
+
+func star22(i: Int) {
+var d = 1
+    for k in 1...i {
+        for j in 1...i  {
+            print(d, terminator: j != i ? "*" : "")
+            d += 1
+        }
+        print()
+    }
+
+}
+star22(i: 5)
 
 
