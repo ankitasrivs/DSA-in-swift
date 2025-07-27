@@ -455,4 +455,37 @@ func star17(i: Int) {
 
 }
 star17(i: 5)
+/*
+* * * * * * * * * 
+  *           * 
+    *       * 
+      *   * 
+        * 
+*/
+
+func star18(i: Int) {
+
+    for k in (1...i).reversed() {
+        if i-k >= 1 {
+            for h in 1...i-k {
+                print(" ",terminator: " ")
+            }
+        }
+
+
+        for h in (1...(2*k)-1) {
+                if h == 1 || h == (2*k)-1 || k == i {
+                    print("*", terminator: " ")
+                } else {
+                    print(" ", terminator: " ")
+                }
+            }
+
+        print()
+
+    }
+
+}
+star18(i: 5)
+
 
