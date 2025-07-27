@@ -348,3 +348,28 @@ func star13(i: Int) {
 
 }
 star13(i: 5)
+
+/*
+* * * * 
+*     * 
+*     * 
+*     * 
+* * * * 
+*/
+
+func star14(i: Int, j: Int) {
+
+    for k in 1...i {
+        for h in 1...j {
+            if h == 1 || h == j || k == 1 || k == i {
+                print("*", terminator: " ")
+            } else {
+                print(" ", terminator: " ")
+            }
+        }
+        print()
+    }
+
+}
+star14(i: 5, j: 4)
+
