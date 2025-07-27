@@ -188,7 +188,28 @@ var f = 3
     }
 }
 star9(i: 5)
+/*
+77777
+6666
+555
+44
+3
+*/
 
+
+func star9(i: Int) {
+var f = 3+i-1
+    for k in (1...i).reversed() {
+
+        for j in 1...k {
+            print("\(f)", terminator: "")
+
+        }
+        f -= 1
+        print()
+    }
+}
+star(i: 5)
 
 
 
