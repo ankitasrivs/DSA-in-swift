@@ -167,6 +167,28 @@ var f = 1
 }
 star8(i: 5)
 
+/*
+3
+44
+555
+6666
+77777
+*/
+
+func star9(i: Int) {
+var f = 3
+    for k in 1...i {
+
+        for j in 1...k {
+            print("\(f)", terminator: "")
+
+        }
+        f += 1
+        print()
+    }
+}
+star9(i: 5)
+
 
 
 
