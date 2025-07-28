@@ -149,7 +149,6 @@ star7(i: 5)
 1112131415
 */
 
-
 func star8(i: Int) {
 var f = 1
     for k in 1...i {
