@@ -16,8 +16,6 @@ func star1(i: Int) {
 }
 star1(i: 4)
 
-
-
 /*
  * * * * 
 *       * 
