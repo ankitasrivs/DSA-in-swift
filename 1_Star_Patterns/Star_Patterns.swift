@@ -53,7 +53,6 @@ func star3(i: Int) {
         for j in 0...k {
             print(" ", terminator: " ")
         }
-
         for j in 0...i {
             print("*", terminator: " ")
         }
