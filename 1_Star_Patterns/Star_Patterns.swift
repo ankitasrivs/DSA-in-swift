@@ -83,6 +83,7 @@ func star4(i: Int) {
     }
 }
 star4(i: 5)
+
 /*
 1 1 1 1 1 
 1 1 1 1 1 
@@ -90,7 +91,6 @@ star4(i: 5)
 1 1 1 1 1 
 1 1 1 1 1 
 */
-
 func star5(i: Int) {
 
     for k in 1...i {
