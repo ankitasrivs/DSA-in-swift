@@ -24,7 +24,6 @@ star1(i: 4)
 * * * * * 
 */
 
-
 func star2(i: Int) {
     for k in 0..<i {
         for j in 0..<i {
