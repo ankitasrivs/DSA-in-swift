@@ -649,3 +649,33 @@ var c = i * i
 }
 star23(i: 4)
 
+/*
+1      1
+12    21
+123  321
+12344321
+*/
+func star24(i: Int) {
+
+    for k in 1...i {
+        for j in 1...k {
+            print(j, terminator: "")
+        }
+
+        if k != i {
+            for j in 1...(i-k) {
+                print(" ", terminator: " ")
+            }
+        }
+
+        for j in (1...k).reversed() {
+            print(j, terminator: "")
+        }
+        print()
+    }
+
+
+}
+star24(i: 4)
+
+
