@@ -627,4 +627,25 @@ var d = 1
 }
 star22(i: 5)
 
+/*
+13*14*15*16
+9*10*11*12
+5*6*7*8
+1*2*3*4
+*/
+
+func star23(i: Int) {
+var c = i * i
+    for k in (1...i) {
+     c = c - i * k + 1
+        for j in 1...i {
+            print(c, terminator: j == i ? "" : "*")
+            c += 1
+        }
+        c = i * i
+        print()
+    }
+
+}
+star23(i: 4)
 
