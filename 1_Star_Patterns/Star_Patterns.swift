@@ -678,4 +678,55 @@ func star24(i: Int) {
 }
 star24(i: 4)
 
+/*
+********
+***  ***
+**    **
+*      *
+*      *
+**    **
+***  ***
+********
+*/
+func star25(i: Int) {
+
+    for k in (1...i).reversed() {
+        for j in (1...k).reversed() {
+            print("*", terminator: "")
+        }
+
+        if  abs(k-i) >= 1 {
+            for j in 1...abs(k-i) {
+                print(" ", terminator: " ")
+            }
+        }
+
+        for j in (1...k).reversed() {
+            print("*", terminator: "")
+        }
+        print()
+    }
+
+    for k in (1...i){
+        for j in (1...k) {
+            print("*", terminator: "")
+        }
+
+        if  abs(k-i) >= 1 {
+            for j in 1...abs(k-i) {
+                print(" ", terminator: " ")
+            }
+        }
+
+        for j in (1...k) {
+            print("*", terminator: "")
+        }
+        print()
+    }
+
+
+
+}
+star25(i: 4)
+
 
