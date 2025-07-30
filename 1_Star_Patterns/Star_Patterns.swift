@@ -748,4 +748,22 @@ func star26(i: Int) {
 }
 star26(i: 4)
 
+/*
+A B C D 
+A B C 
+A B 
+A 
+*/
+func star27(i: Int) {
+
+    for i in (1...i).reversed() {
+        for j in 1...i {
+            print(UnicodeScalar(UInt8(exactly: j+64)!), terminator: " ")
+        }
+        print()
+    }
+
+
+}
+star27(i: 4)
 
