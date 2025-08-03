@@ -18,3 +18,33 @@ Partition the Array: Reorder the array so that all elements with values less tha
 Recursively Apply: Recursively apply the above steps to the sub-arrays formed by dividing the array at the pivot.
 
 */
+
+// When center element is Pivot
+func quickSortWhenCenterIsPivot(_ arr:  [Int]) -> [Int] {
+
+    guard arr.count > 1 else {
+        return arr
+    }
+
+    let center = arr[arr.count/2]
+    let left = arr.filter {
+        $0 < center
+    }
+
+    let right = arr.filter {
+        $0 > center
+    }
+
+    let equal = arr.filter {
+        $0 == center
+    }
+
+    return quickSortWhenCenterIsPivot(Array(left)) + Array(equal) + quickSortWhenCenterIsPivot(Array(right))
+
+}
+
+
+var arr = [4, 2, 7, 1]
+
+print("Sorted array: \(quickSortWhenCenterIsPivot(arr))")
+
