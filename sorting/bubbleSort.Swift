@@ -11,6 +11,7 @@ Space Complexity:
 Worst-Case: O(1) - Bubble Sort is an in-place sorting algorithm, meaning it only requires a constant amount of additional space for temporary variables during the swapping process, regardless of the input size.
 Summary:
 While Bubble Sort is straightforward to understand and implement in Swift, its quadratic time complexity in most cases makes it inefficient for sorting large datasets. It is generally more suitable for small arrays or those that are nearly sorted, where simplicity and minimal overhead are prioritized over raw performance.
+NOTE: After every iteration last element is sorted
 */
 
 func bubbleSort(_ arr: inout [Int]) {
