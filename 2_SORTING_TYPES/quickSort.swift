@@ -105,3 +105,55 @@ func quickSortWhenFirstIsPivot(_ arr: [Int]) -> [Int] {
 }
 
 
+
+
+
+### 🔚 **QuickSort with Last Element as Pivot**
+
+
+func quickSortWhenLastIsPivot(_ arr: [Int]) -> [Int] {
+    guard arr.count > 1 else { return arr }
+    
+    let pivot = arr[arr.count - 1]
+    
+    let left = arr.dropLast().filter { $0 < pivot }
+    let equal = arr.filter { $0 == pivot } // includes pivot and any equal values
+    let right = arr.dropLast().filter { $0 > pivot }
+
+    return quickSortWhenLastIsPivot(Array(left)) + equal + quickSortWhenLastIsPivot(Array(right))
+}
+/*
+
+---
+
+### ✅ **Usage Example**:
+
+```swift
+let arr = [4, 2, 7, 1]
+print("Sorted array: \(quickSortWhenLastIsPivot(arr))")
+```
+
+---
+
+### 📊 **Complexity Summary** (Same as other pivot versions)
+
+| Case    | Time       | Space      |
+| ------- | ---------- | ---------- |
+| Best    | O(n log n) | O(n log n) |
+| Average | O(n log n) | O(n log n) |
+| Worst   | O(n²)      | O(n²)      |
+
+* **Worst case** happens when the array is already sorted (ascending or descending).
+* **Not in-place** because it uses `.filter` and copies arrays.
+
+---
+
+Let me know if you'd like:
+
+* An **in-place version using last element** (Lomuto partition scheme).
+* A **benchmark comparison** between first, last, and center pivot versions.
+
+
+/*
+
+
