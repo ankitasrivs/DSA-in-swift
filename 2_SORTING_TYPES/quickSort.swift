@@ -153,6 +153,8 @@ Let me know if you'd like:
 * An **in-place version using last element** (Lomuto partition scheme).
 * A **benchmark comparison** between first, last, and center pivot versions.
 
+ this  versions using .filter and array copies are not true divide-and-conquer implementations. They work functionally, but they don't divide the problem in-place or reduce auxiliary space.
+
 
 /*
 
