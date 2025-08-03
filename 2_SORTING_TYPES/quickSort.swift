@@ -89,3 +89,19 @@ var arr = [4, 2, 7, 1]
 
 print("Sorted array: \(quickSortWhenCenterIsPivot(arr))")
 
+
+//When pivot is first element
+
+func quickSortWhenFirstIsPivot(_ arr: [Int]) -> [Int] {
+    guard arr.count > 1 else { return arr }
+    
+    let pivot = arr[0]
+    
+    let left = arr.dropFirst().filter { $0 < pivot }
+    let equal = arr.filter { $0 == pivot } // includes pivot and any equal values
+    let right = arr.dropFirst().filter { $0 > pivot }
+
+    return quickSortWhenFirstIsPivot(Array(left)) + equal + quickSortWhenFirstIsPivot(Array(right))
+}
+
+
