@@ -19,6 +19,47 @@ Recursively Apply: Recursively apply the above steps to the sub-arrays formed by
 
 */
 
+
+/*
+📦 Space Complexity:
+Best/Average/Worst: O(n log n) auxiliary space due to recursion stack (best/avg cases), and O(n) for filtered arrays at each level of recursion.
+
+Extra space used by .filter creates new arrays at each recursive level, and since each element appears once in every level of recursion:
+
+👉 Total Space = O(n log n)
+However, in Swift (due to copying arrays with filter), the hidden cost may feel closer to O(n²) in worst-case recursion depth.
+
+⏱️ Time Complexity:
+Let n be the number of elements.
+
+Each call to .filter runs in O(n), and there are three filters: <, ==, and >.
+
+At each recursive level, you process n elements (via filters).
+
+If the array splits evenly every time (ideal case), there are log n levels.
+
+➤ Best and Average Case:
+Balanced partition → each recursive call halves the array.
+
+T(n) = 2T(n/2) + O(n) → similar to Merge Sort.
+
+➤ Time = O(n log n)
+
+➤ Worst Case:
+Unbalanced partition (e.g., when all elements are the same except one, or already sorted arrays).
+
+One side is empty, other side has n-1 elements.
+
+T(n) = T(n-1) + O(n) → triangular recursion depth.
+
+➤ Time = O(n²)
+
+✅ Summary:
+Case	Time Complexity	Space Complexity
+Best	O(n log n)	O(n log n)
+Average	O(n log n)	O(n log n)
+Worst	O(n²)	O(n²) (copying & stack)
+*/
 // When center element is Pivot and we apply filtring
 func quickSortWhenCenterIsPivot(_ arr:  [Int]) -> [Int] {
 
