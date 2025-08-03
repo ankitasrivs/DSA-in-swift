@@ -789,3 +789,33 @@ func star28(i: Int) {
 }
 star28(i: 4)
 
+/*
+4 4 4 4 4 4 4 
+4 3 3 3 3 3 4 
+4 3 2 2 2 3 4 
+4 3 2 1 2 3 4 
+4 3 2 2 2 3 4 
+4 3 3 3 3 3 4 
+4 4 4 4 4 4 4 
+*/
+func star29(n: Int) {
+    let size = 2 * n - 1
+
+    for i in 0..<size {
+        for j in 0..<size {
+            let top = i
+            let left = j
+            let bottom = size - 1 - i
+            let right = size - 1 - j
+
+            let minDistance = min(min(top, bottom), min(left, right))
+            let value = n - minDistance
+            print(value, terminator: " ")
+        }
+        print()
+    }
+}
+
+star29(n: 4)
+
+
