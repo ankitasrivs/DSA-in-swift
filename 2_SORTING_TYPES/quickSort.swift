@@ -19,7 +19,7 @@ Recursively Apply: Recursively apply the above steps to the sub-arrays formed by
 
 */
 
-// When center element is Pivot
+// When center element is Pivot and we apply filtring
 func quickSortWhenCenterIsPivot(_ arr:  [Int]) -> [Int] {
 
     guard arr.count > 1 else {
