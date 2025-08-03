@@ -1,3 +1,7 @@
+SELECTION VS INSERTION SORT
+
+
+
 Neither Bubble Sort nor Selection Sort is generally considered "better" in all scenarios, as their suitability depends on specific requirements. Both algorithms have a time complexity of O(n^2) in the average and worst cases, making them inefficient for large datasets. 
 Selection Sort is generally preferred when: 
 
@@ -22,7 +26,7 @@ Bubble Sort can be faster than Selection Sort for nearly sorted data due to its 
 
 Bubble Sort is stable, while Selection Sort is not. [1]  
 
-AI responses may include mistakes.
 
-[1] https://www.wscubetech.com/resources/dsa/bubble-sort-vs-selection-sort
+
+
 
