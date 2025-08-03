@@ -1,45 +1,101 @@
-Bubble Sort, Selection Sort, and Insertion Sort are simple sorting algorithms that are commonly used to sort small datasets or as building blocks for more complex sorting algorithms. Here's a comparison of the three algorithms:
+# Comparison of Basic Sorting Algorithms
 
-Bubble Sort:
-Time complexity: O(n^2) in the worst and average cases, O(n) in the best case (when the input array is already sorted)
-Space complexity: O(1)
-Basic idea: Iterate through the array repeatedly, comparing adjacent pairs of elements and swapping them if they are in the wrong order. Repeat until the array is fully sorted.
+**Bubble Sort**, **Selection Sort**, and **Insertion Sort** are simple sorting algorithms, commonly used for small datasets or as building blocks for more complex algorithms.
 
-Selection Sort:
-Time complexity: O(n^2) in all cases (worst, average, and best)
-Space complexity: O(1)
-Basic idea: Find the minimum element in the unsorted portion of the array and swap it with the first unsorted element. Repeat until the array is fully sorted.
+---
 
-Insertion Sort:
-Time complexity: O(n^2) in the worst and average cases, O(n) in the best case (when the input array is already sorted)
-Space complexity: O(1)
-Basic idea: Build up a sorted subarray from left to right by inserting each new element into its correct position in the subarray. Repeat until the array is fully sorted.
+## 📊 Algorithm Comparison Table
 
-Comparison:
-Bubble Sort, Selection Sort, and Insertion Sort all have the same worst-case and average-case time complexity of O(n²). However, Insertion Sort generally performs better in practice, especially on nearly sorted data, due to fewer swaps and comparisons, making it more efficient in average scenarios compared to Bubble Sort and Selection Sort.
-Insertion Sort has the best-case time complexity of O(n) when the input array is already sorted, which is not possible for Bubble Sort and Selection Sort.
-Selection Sort and Insertion Sort both have the same space complexity of O(1), while Bubble Sort also has a space complexity of O(1).
-Bubble Sort and Insertion Sort are stable sorting algorithms, meaning that they preserve the relative order of equal elements in the sorted array, while Selection Sort is not stable.
-In terms of performance, Insertion Sort tends to perform better than Bubble Sort and Selection Sort for small datasets, while Bubble Sort and Selection Sort may perform better than Insertion Sort for larger datasets or datasets that are partially sorted.
-Overall, each algorithm has its own advantages and disadvantages, and the choice of which algorithm to use depends on the specific requirements of the problem at hand.
-Advantages and disadvantages of each algorithm
-Bubble Sort:
-Advantages: Simple implementation, works well for small datasets, requires only constant space, stable sorting algorithm
-Disadvantages: Inefficient for large datasets, worst-case time complexity of O(n^2), not optimal for partially sorted datasets
+| Algorithm      | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity | Stable | In-Place |
+| -------------- | ---------------------- | ------------------------- | ----------------------- | ---------------- | ------ | -------- |
+| Bubble Sort    | O(n)                   | O(n²)                     | O(n²)                   | O(1)             | ✅      | ✅        |
+| Selection Sort | O(n²)                  | O(n²)                     | O(n²)                   | O(1)             | ❌      | ✅        |
+| Insertion Sort | O(n)                   | O(n²)                     | O(n²)                   | O(1)             | ✅      | ✅        |
 
+---
 
-Selection Sort:
-Advantages: Simple implementation, works well for small datasets, requires only constant space, in-place sorting algorithm
-Disadvantages: Inefficient for large datasets, worst-case time complexity of O(n^2), not optimal for partially sorted datasets, not a stable sorting algorithm
+## 🧠 Algorithm Overviews
 
+### 🔁 Bubble Sort
 
-Insertion Sort:
-Advantages: Simple implementation, works well for small datasets, requires only constant space, efficient for partially sorted datasets, stable sorting algorithm
-Disadvantages: Inefficient for large datasets, worst-case time complexity of O(n^2)
+* **Idea**: Repeatedly compare adjacent elements and swap if they are in the wrong order. Repeat until no swaps are needed.
+* **Use Case**: Educational purposes or extremely small datasets.
+* **Complexity**:
 
+  * Best: O(n) (already sorted)
+  * Average/Worst: O(n²)
+* **Stable**: ✅
+* **Space**: O(1)
 
+---
 
+### 🔍 Selection Sort
 
+* **Idea**: Repeatedly find the minimum element from the unsorted part and swap it with the first unsorted element.
+* **Use Case**: When memory writes are expensive.
+* **Complexity**:
 
+  * Best/Average/Worst: O(n²)
+* **Stable**: ❌
+* **Space**: O(1)
 
+---
+
+### 🧩 Insertion Sort
+
+* **Idea**: Build a sorted portion one element at a time by inserting new elements in their correct position.
+* **Use Case**: Nearly sorted data or small datasets.
+* **Complexity**:
+
+  * Best: O(n) (already sorted)
+  * Average/Worst: O(n²)
+* **Stable**: ✅
+* **Space**: O(1)
+
+---
+
+## ⚖️ Detailed Comparison
+
+* **Efficiency**:
+
+  * All three have **O(n²)** worst-case and average-case time complexity.
+  * **Insertion Sort** outperforms the others on nearly sorted datasets due to fewer comparisons and swaps.
+* **Stability**:
+
+  * Bubble Sort and Insertion Sort are stable; Selection Sort is not.
+* **Space**:
+
+  * All are in-place sorting algorithms with **O(1)** space complexity.
+
+---
+
+## ✅ Advantages and ❌ Disadvantages
+
+### Bubble Sort
+
+* ✅ Simple to implement
+* ✅ Stable
+* ✅ In-place with constant space
+* ❌ Very inefficient for large datasets
+* ❌ Performs unnecessary swaps even when data is partially sorted
+
+### Selection Sort
+
+* ✅ Simple and deterministic behavior
+* ✅ In-place with constant space
+* ❌ Inefficient regardless of input order
+* ❌ Not stable
+
+### Insertion Sort
+
+* ✅ Simple and intuitive
+* ✅ Efficient for nearly sorted data
+* ✅ Stable and in-place
+* ❌ Not suitable for large datasets due to O(n²) worst-case
+
+---
+
+## 📌 Conclusion
+
+While none of these algorithms are ideal for large datasets, **Insertion Sort** is usually the best choice for small or nearly sorted data. **Bubble Sort** is primarily educational, and **Selection Sort** is useful when swap operations are limited.
 
