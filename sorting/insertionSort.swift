@@ -8,3 +8,24 @@ How Insertion Sort Works:
 The algorithm virtually divides the input array into two parts: a sorted part and an unsorted part. Initially, the first element of the array is considered the sorted part, and the rest is the unsorted part. The algorithm then iteratively takes elements from the unsorted part and inserts them into their correct position within the sorted part.
 
 */
+
+
+func insertionSort(_ arr: inout [Int]) {
+
+
+
+    for i in 1..<arr.count{
+        var j = i
+        while j > 0 && arr[j] < arr[j-1] {
+            arr.swapAt(j, j-1)
+            j -= 1
+        }
+    }
+}
+
+
+var arr = [4, 2, 7, 1]
+
+insertionSort(&arr)
+
+print("Sorted array: \(arr)")
