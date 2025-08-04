@@ -1,3 +1,12 @@
+/*
+
+The main reason:
+👉 To avoid checking j != pivotIndex inside the loop.
+
+If you keep the pivot in place (say at index low), you'd have to carefully skip over it in your loop or handle comparisons conditionally, which complicates the code.
+*/
+
+
 func quickSortWhenLeftPivot(_ arr:  inout [Int], _ low: Int, _ high: Int) {
     if low < high {
         print(" before partition is  array is : \(arr)")
