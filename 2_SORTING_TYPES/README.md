@@ -1,16 +1,18 @@
 # Comparison of Basic Sorting Algorithms
 
-**Bubble Sort**, **Selection Sort**, and **Insertion Sort** are simple sorting algorithms, commonly used for small datasets or as building blocks for more complex algorithms.
+**Bubble Sort**, **Selection Sort**, **Insertion Sort**, and **Quick Sort** are sorting algorithms used based on dataset size, structure, and performance needs.
 
 ---
 
 ## 📊 Algorithm Comparison Table
 
-| Algorithm      | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity | Stable | In-Place |
-| -------------- | ---------------------- | ------------------------- | ----------------------- | ---------------- | ------ | -------- |
-| Bubble Sort    | O(n)                   | O(n²)                     | O(n²)                   | O(1)             | ✅      | ✅        |
-| Selection Sort | O(n²)                  | O(n²)                     | O(n²)                   | O(1)             | ❌      | ✅        |
-| Insertion Sort | O(n)                   | O(n²)                     | O(n²)                   | O(1)             | ✅      | ✅        |
+| Algorithm           | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity | Stable | In-Place |
+| ------------------- | ---------------------- | ------------------------- | ----------------------- | ---------------- | ------ | -------- |
+| Bubble Sort         | O(n)                   | O(n²)                     | O(n²)                   | O(1)             | ✅      | ✅        |
+| Selection Sort      | O(n²)                  | O(n²)                     | O(n²)                   | O(1)             | ❌      | ✅        |
+| Insertion Sort      | O(n)                   | O(n²)                     | O(n²)                   | O(1)             | ✅      | ✅        |
+| Quick Sort (Divide) | O(n log n)             | O(n log n)                | O(n²)                   | O(log n)         | ❌      | ✅        |
+| Quick Sort (Filter) | O(n log n)             | O(n log n)                | O(n²)                   | O(n)             | ❌      | ❌        |
 
 ---
 
@@ -18,84 +20,61 @@
 
 ### 🔁 Bubble Sort
 
-* **Idea**: Repeatedly compare adjacent elements and swap if they are in the wrong order. Repeat until no swaps are needed.
-* **Use Case**: Educational purposes or extremely small datasets.
-* **Complexity**:
-
-  * Best: O(n) (already sorted)
-  * Average/Worst: O(n²)
-* **Stable**: ✅
-* **Space**: O(1)
+* **Idea**: Repeatedly compare and swap adjacent elements until sorted.
+* **Best Use**: Educational or trivial small inputs.
 
 ---
 
 ### 🔍 Selection Sort
 
-* **Idea**: Repeatedly find the minimum element from the unsorted part and swap it with the first unsorted element.
-* **Use Case**: When memory writes are expensive.
-* **Complexity**:
-
-  * Best/Average/Worst: O(n²)
-* **Stable**: ❌
-* **Space**: O(1)
+* **Idea**: Select the smallest remaining element and place it at the beginning.
+* **Best Use**: When swaps must be minimized.
 
 ---
 
 ### 🧩 Insertion Sort
 
-* **Idea**: Build a sorted portion one element at a time by inserting new elements in their correct position.
-* **Use Case**: Nearly sorted data or small datasets.
-* **Complexity**:
-
-  * Best: O(n) (already sorted)
-  * Average/Worst: O(n²)
-* **Stable**: ✅
-* **Space**: O(1)
+* **Idea**: Build sorted array one element at a time by shifting.
+* **Best Use**: Small or nearly sorted data.
 
 ---
 
-## ⚖️ Detailed Comparison
+### ⚡️ Quick Sort (Divide and Conquer)
 
-* **Efficiency**:
+* **Idea**: Choose a pivot, partition the array, then sort subarrays recursively.
+* **Best Use**: General-purpose fast sorting, widely used in practice.
+* **Worst case**: O(n²) occurs when pivot is poorly chosen (e.g., already sorted data with first/last pivot).
 
-  * All three have **O(n²)** worst-case and average-case time complexity.
-  * **Insertion Sort** outperforms the others on nearly sorted datasets due to fewer comparisons and swaps.
-* **Stability**:
+---
 
-  * Bubble Sort and Insertion Sort are stable; Selection Sort is not.
-* **Space**:
+### 🌊 Quick Sort (Filtering / Functional Style)
 
-  * All are in-place sorting algorithms with **O(1)** space complexity.
+* **Idea**: Choose a pivot, then build `less`, `equal`, and `greater` arrays via filtering. Recursively sort and concatenate.
+* **Best Use**: Clean functional style (e.g., in Swift, Python), but uses extra memory.
+* **Drawback**: Not in-place — needs O(n) space.
 
 ---
 
 ## ✅ Advantages and ❌ Disadvantages
 
-### Bubble Sort
+### Quick Sort (Divide and Conquer)
 
-* ✅ Simple to implement
-* ✅ Stable
-* ✅ In-place with constant space
-* ❌ Very inefficient for large datasets
-* ❌ Performs unnecessary swaps even when data is partially sorted
+* ✅ Fast average performance: O(n log n)
+* ✅ In-place (uses minimal additional memory)
+* ❌ Unstable
+* ❌ Can degrade to O(n²) without good pivot selection
 
-### Selection Sort
+### Quick Sort (Filtering)
 
-* ✅ Simple and deterministic behavior
-* ✅ In-place with constant space
-* ❌ Inefficient regardless of input order
-* ❌ Not stable
-
-### Insertion Sort
-
-* ✅ Simple and intuitive
-* ✅ Efficient for nearly sorted data
-* ✅ Stable and in-place
-* ❌ Not suitable for large datasets due to O(n²) worst-case
+* ✅ Elegant, clean implementation
+* ✅ Safe from index bugs
+* ❌ Not in-place (requires more memory)
+* ❌ Still unstable
 
 ---
 
 ## 📌 Conclusion
 
-While none of these algorithms are ideal for large datasets, **Insertion Sort** is usually the best choice for small or nearly sorted data. **Bubble Sort** is primarily educational, and **Selection Sort** is useful when swap operations are limited.
-
+* For small or nearly sorted data: **Insertion Sort** is preferred.
+* For large datasets: **Quick Sort (Divide and Conquer)** is one of the fastest general-purpose algorithms.
+* Use **Quick Sort (Filtering)** for simplicity in functional or scripting languages, if space isn’t a concern.
