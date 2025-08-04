@@ -129,3 +129,90 @@ quickSortWhenLastPivot(&arr,0, arr.count - 1)
 print("Sorted array: \(arr)")
 
 
+/*
+Great question! Choosing the **pivot position** in QuickSort significantly impacts performance, especially for **unbalanced input arrays**.
+
+Let’s break it down:
+
+---
+
+## 🔢 1. **Last Element as Pivot**
+
+### ✅ Pros:
+
+* Easy to implement.
+* Works well if array is randomly shuffled.
+
+### ❌ Cons:
+
+* **Very bad for already sorted or reverse-sorted arrays**, where every partition is maximally unbalanced (O(n²)).
+
+---
+
+## 🔢 2. **First Element as Pivot**
+
+### ✅ Pros:
+
+* Also simple to implement.
+* Works okay on shuffled input.
+
+### ❌ Cons:
+
+* **Same flaw as last element** — already sorted/reverse sorted data leads to worst-case behavior (O(n²)).
+
+---
+
+## 🔢 3. **Middle (Center) Element as Pivot**
+
+### ✅ Pros:
+
+* Slightly better than first/last for partially sorted data.
+* Avoids worst-case in some skewed cases.
+
+### ❌ Cons:
+
+* Still deterministic — a clever adversary can craft input to break it (in theory).
+
+---
+
+## 🧠 Best (in practice): **Random or Median-of-Three**
+
+### ✅ 4. **Random Pivot**
+
+* Randomly choose a pivot in `[low...high]`.
+* Gives excellent **average-case performance** (expected O(n log n)).
+* Immune to sorted/reversed input.
+
+### ✅ 5. **Median-of-Three Pivot**
+
+* Take the **median of first, middle, and last** elements.
+* Good balance in many real-world scenarios.
+* Helps avoid worst-case behavior for nearly sorted input.
+
+```swift
+let mid = (low + high) / 2
+let pivotIndex = medianIndex(arr, low, mid, high)
+```
+
+---
+
+## 🔚 Final Comparison
+
+| Pivot Type          | Time Complexity (Worst) | Good for Random? | Good for Sorted? | Practical Use?          |
+| ------------------- | ----------------------- | ---------------- | ---------------- | ----------------------- |
+| First               | O(n²)                   | ✅                | ❌                | 👎 Simple only          |
+| Last                | O(n²)                   | ✅                | ❌                | 👎 Simple only          |
+| Center              | O(n²)                   | ✅                | ❌                | 👍 Slightly better      |
+| **Random**          | O(n log n) expected     | ✅                | ✅                | ✅✅ Best for general use |
+| **Median-of-Three** | O(n log n) average      | ✅✅               | ✅✅               | ✅✅ Fast and robust      |
+
+---
+
+## ✅ Verdict
+
+> 🔥 Use **random pivot** or **median-of-three** in production.
+> 🧪 Use **first/last/center** for **educational or controlled environments** only.
+
+Let me know if you want to implement median-of-three in your Swift quicksort!
+
+*/
