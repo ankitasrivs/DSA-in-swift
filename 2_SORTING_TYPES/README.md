@@ -1,20 +1,19 @@
 
-# 📚 Comparison of Basic Sorting Algorithms
+# 🧮 Comparison of Sorting Algorithms
 
-**Bubble Sort**, **Selection Sort**, **Insertion Sort**, **Quick Sort**, and **Merge Sort** are fundamental sorting algorithms used in different scenarios based on data size, performance needs, and stability requirements.
+This document compares basic and advanced sorting algorithms including **Bubble Sort**, **Selection Sort**, **Insertion Sort**, **Quick Sort**, and **Merge Sort**, based on their complexity, memory usage, and behavior.
 
 ---
 
 ## 📊 Algorithm Comparison Table
 
-| Algorithm            | Time Complexity (Best) | Time Complexity (Average) | Time Complexity (Worst) | Space Complexity | Stable | In-Place |
-|----------------------|------------------------|----------------------------|--------------------------|------------------|--------|----------|
-| Bubble Sort          | O(n)                   | O(n²)                      | O(n²)                    | O(1)             | ✅      | ✅        |
-| Selection Sort       | O(n²)                  | O(n²)                      | O(n²)                    | O(1)             | ❌      | ✅        |
-| Insertion Sort       | O(n)                   | O(n²)                      | O(n²)                    | O(1)             | ✅      | ✅        |
-| Quick Sort (Divide)  | O(n log n)             | O(n log n)                 | O(n²)                    | O(log n)         | ❌      | ✅        |
-| Quick Sort (Filter)  | O(n log n)             | O(n log n)                 | O(n²)                    | O(n)             | ❌      | ❌        |
-| Merge Sort           | O(n log n)             | O(n log n)                 | O(n log n)               | O(n)             | ✅      | ❌        |
+| Algorithm           | Time Complexity (Best) | Time Complexity (Avg) | Time Complexity (Worst) | Space Complexity | Stable | In-Place |
+| ------------------- | ---------------------- | ---------------------- | ------------------------ | ---------------- | ------ | -------- |
+| Bubble Sort         | O(n)                   | O(n²)                  | O(n²)                    | O(1)             | ✅      | ✅        |
+| Selection Sort      | O(n²)                  | O(n²)                  | O(n²)                    | O(1)             | ❌      | ✅        |
+| Insertion Sort      | O(n)                   | O(n²)                  | O(n²)                    | O(1)             | ✅      | ✅        |
+| Quick Sort (Divide) | O(n log n)             | O(n log n)             | O(n²)                    | O(log n)         | ❌      | ✅        |
+| Merge Sort          | O(n log n)             | O(n log n)             | O(n log n)               | O(n)             | ✅      | ❌        |
 
 ---
 
@@ -22,132 +21,162 @@
 
 ### 🔁 Bubble Sort
 
-- **Idea**: Repeatedly compare and swap adjacent elements until the list is sorted.
-- **After each iteration**: The **last unsorted element** is correctly placed.
-- ✅ Very simple to implement  
-- ✅ Can detect already sorted array (best case O(n))  
-- ❌ Very slow on large datasets (O(n²))  
-- ❌ Not suitable for production use  
+**Idea**: Repeatedly compare adjacent elements and swap if needed, pushing the largest value to the end in each pass.
+
+**Sorted element after each pass**:
+- After pass 1: largest element is at the end.
+- After pass 2: second-largest at second-last, and so on.
+
+**Best Use**: Educational or very small input.
 
 ---
 
 ### 🔍 Selection Sort
 
-- **Idea**: Repeatedly find the minimum element and move it to the front.
-- **After each iteration**: The **first unsorted element** is correctly placed.
-- ✅ Minimal number of swaps (O(n))  
-- ✅ In-place and easy to implement  
-- ❌ Always O(n²), even if already sorted  
-- ❌ Unstable (may change order of equal elements)  
+**Idea**: Repeatedly find the minimum from unsorted part and move to sorted part.
+
+**Sorted element after each pass**:
+- After pass 1: smallest element placed at beginning.
+- After pass 2: second-smallest in position 2, etc.
+
+**Best Use**: Environments where swaps are expensive but comparisons are cheap.
 
 ---
 
 ### 🧩 Insertion Sort
 
-- **Idea**: Build the final sorted array one element at a time by comparing and shifting elements.
-- **After each iteration**: The **left portion** of the array is sorted.
-- ✅ Efficient for small or nearly sorted data  
-- ✅ Stable and in-place  
-- ✅ Adaptive (performs better on partially sorted arrays)  
-- ❌ Poor performance on large unsorted arrays (O(n²))  
+**Idea**: Builds a sorted sublist by inserting each element at the correct position.
+
+**Sorted elements after each pass**:
+- After inserting the 2nd element: first 2 are sorted.
+- After 3rd: first 3 are sorted, and so on.
+
+**Best Use**: Small or nearly sorted arrays.
 
 ---
 
-### ⚡ Quick Sort (Divide and Conquer)
+### ⚡️ Quick Sort (Divide and Conquer)
 
-- **Idea**: Choose a pivot element, partition the array around the pivot, and recursively apply the same strategy to subarrays.
-- **After each partition**: The **pivot element** is at its final sorted position.
-- ✅ Average time: O(n log n)  
-- ✅ In-place  
-- ❌ Unstable  
-- ❌ Worst-case time: O(n²) with bad pivot choice  
+**Idea**: Select a pivot, partition the array around it, and recursively sort subarrays.
 
----
+**Sorted element after each partition**:
+- After each partition: pivot is placed at its final sorted position.
 
-### 🌊 Quick Sort (Filter / Functional Style)
-
-- **Idea**: Choose a pivot, split into `less`, `equal`, and `greater` arrays using filtering, then recursively sort and concatenate.
-- **After each merge**: Pivot and filtered sections are recursively combined.
-- ✅ Clean, expressive code  
-- ✅ No manual index handling  
-- ❌ Not in-place (uses extra memory)  
-- ❌ Unstable  
+**Best Use**: Large datasets, general-purpose fast sorting.
 
 ---
 
-### 🔀 Merge Sort
+### 🌊 Merge Sort
 
-- **Idea**: Divide the array into halves, sort each half recursively, then merge the sorted halves.
-- **After each merge step**: Two sorted halves are combined into a larger sorted section.
-- ✅ Stable sort  
-- ✅ Consistent O(n log n) time  
-- ✅ Good for linked lists and external sorting  
-- ❌ Not in-place  
-- ❌ Extra memory usage (O(n))  
+**Idea**: Divide the array in halves, sort each half, and merge them.
 
----
+**Sorted element after each merge**:
+- Each merge creates a partially sorted segment.
+- Final merge gives fully sorted array.
 
-## 🆚 Which is Better?
-
-### ✅ Why Insertion Sort is Better Than Bubble and Selection Sort
-
-| Feature               | Bubble Sort | Selection Sort | Insertion Sort |
-|------------------------|-------------|----------------|----------------|
-| Best-case performance  | O(n)        | O(n²)          | O(n)           |
-| Adaptive to order      | ✅           | ❌              | ✅              |
-| Stable                 | ✅           | ❌              | ✅              |
-| Number of swaps        | High        | Low            | Depends        |
-
-- **Insertion Sort** adapts to nearly sorted data, reducing comparisons and shifts.
-- **Bubble Sort** continues comparing even if array is already sorted unless optimized.
-- **Selection Sort** always does O(n²) comparisons even on sorted arrays.
-- Hence, **Insertion Sort is the best among the three** for small or nearly sorted datasets.
+**Best Use**: Stable sorting with guaranteed O(n log n), especially for linked lists.
 
 ---
 
-### 🔁 Bubble Sort vs Selection Sort: Which Is Better?
+## ✅ Advantages and ❌ Disadvantages
 
-| Criteria             | Bubble Sort         | Selection Sort       |
-|----------------------|---------------------|-----------------------|
-| Stable               | ✅ Yes              | ❌ No                |
-| Swaps                | ❌ More             | ✅ Fewer             |
-| Best-case runtime    | ✅ O(n)             | ❌ O(n²)             |
-| Easy to understand   | ✅ Yes              | ✅ Yes               |
+### Bubble Sort
+✅ Easy to implement  
+✅ Stable  
+✅ In-place  
+❌ Very slow on large inputs  
+❌ High number of comparisons/swaps  
 
-- Use **Bubble Sort** when you need a **stable sort** and may benefit from **early termination**.
-- Use **Selection Sort** when swaps are expensive (e.g., writing to disk/EEPROM).
+### Selection Sort  
+✅ Fewer swaps than bubble sort  
+✅ In-place  
+❌ Always O(n²), even if already sorted  
+❌ ❌ Unstable (explained below)
+
+### Insertion Sort  
+✅ Efficient for small/nearly sorted data  
+✅ Stable and in-place  
+✅ Adaptive (runs in O(n) on sorted input)  
+❌ Still O(n²) in worst case  
+
+### Quick Sort (Divide)  
+✅ Fast average case O(n log n)  
+✅ In-place  
+❌ ❌ Unstable  
+❌ O(n²) worst case (bad pivot)  
+
+### Merge Sort  
+✅ Always O(n log n)  
+✅ Stable  
+✅ Good for linked lists or external sorting  
+❌ Not in-place (needs O(n) space)  
 
 ---
 
-### ⚔️ Quick Sort vs Merge Sort
+## 💡 Why Insertion Sort is Better than Bubble & Selection
 
-| Feature               | Quick Sort (Divide) | Merge Sort          |
-|------------------------|----------------------|----------------------|
-| Time Complexity (avg)  | O(n log n)           | O(n log n)           |
-| Worst-case             | ❌ O(n²)             | ✅ O(n log n)         |
-| Stable                 | ❌ No                | ✅ Yes               |
-| In-place               | ✅ Yes               | ❌ No                |
-| Space Usage           | ✅ Low (O(log n))    | ❌ High (O(n))       |
-| Use Case              | General-purpose sort | Linked lists, stable sort |
-
-- **Quick Sort** is generally faster in practice due to in-place behavior and better cache performance.
-- **Merge Sort** is preferred when:
-  - **Stability** is required
-  - **Linked lists** are used
-  - Predictable performance matters (e.g., in real-time systems)
+- **Faster on partially sorted arrays**: Insertion Sort adapts and runs in O(n) for sorted data.
+- **Stable**: Maintains order of equal elements, unlike Selection Sort.
+- **Fewer swaps**: Only moves when necessary, unlike Bubble Sort's constant swapping.
 
 ---
 
-## 📌 Final Recommendation
+## ⚔️ Bubble vs Selection Sort
 
-| Scenario                              | Recommended Algorithm        |
-|--------------------------------------|------------------------------|
-| Small or nearly sorted data          | Insertion Sort               |
-| General-purpose, fast in-memory sort | Quick Sort (Divide)          |
-| Stable sort required                 | Merge Sort                   |
-| Clean, functional style              | Quick Sort (Filter)          |
-| External sorting / Linked lists      | Merge Sort                   |
-| Educational / Teaching concepts      | Bubble Sort, Selection Sort  |
+| Aspect         | Bubble Sort       | Selection Sort     |
+| -------------- | ----------------- | ------------------ |
+| Swaps          | Many              | Minimal            |
+| Comparisons    | O(n²)             | O(n²)              |
+| Stability      | ✅ Stable          | ❌ Unstable         |
+| Adaptiveness   | ✅ O(n) best case | ❌ Always O(n²)     |
 
+**Verdict**: Use **Bubble Sort** if data might already be sorted and stability is needed. Otherwise, **Selection Sort** uses fewer writes.
 
+---
+
+## ⚡️ Quick Sort vs 🧬 Merge Sort
+
+| Feature         | Quick Sort       | Merge Sort        |
+|-----------------|------------------|-------------------|
+| Time Avg        | O(n log n)        | O(n log n)         |
+| Time Worst      | ❌ O(n²)           | ✅ O(n log n)        |
+| Space           | ✅ O(log n)        | ❌ O(n)              |
+| Stability       | ❌ Unstable        | ✅ Stable            |
+| In-place        | ✅ Yes             | ❌ No                |
+
+**Verdict**:  
+- Choose **Quick Sort** when speed and memory are critical, and stability isn't needed.  
+- Use **Merge Sort** when stability is important or worst-case consistency is needed (e.g., linked lists, databases).
+
+---
+
+## ⚠️ What is Stability?
+
+**Stable sorting** means if two elements are equal, their relative order is preserved after sorting.
+
+### Example:
+Original array:  
+`[(3, A), (2, B), (3, C)]`
+
+Sorted (Stable):  
+`[(2, B), (3, A), (3, C)]` ✅
+
+Sorted (Unstable):  
+`[(2, B), (3, C), (3, A)]` ❌
+
+---
+
+## ❌ Why Selection and Quick Sort Are Unstable
+
+- **Selection Sort**: When you swap the current element with the minimum in the rest of the array, equal values may get reordered.
+- **Quick Sort**: Partitioning rearranges elements without preserving the order of equal items relative to the pivot.
+
+---
+
+## 📌 Summary
+
+- Use **Insertion Sort** for small or almost sorted datasets.
+- Use **Merge Sort** for guaranteed performance and stability.
+- Use **Quick Sort** for in-place and fast sorting on average.
+- Avoid **Bubble** and **Selection** in production — good for learning.
 
