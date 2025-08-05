@@ -1,237 +1,144 @@
+
+
 # 🧮 Comparison of Sorting Algorithms
 
-This document compares basic and advanced sorting algorithms including **Bubble Sort**, **Selection Sort**, **Insertion Sort**, **Quick Sort**, **Merge Sort**, **Heap Sort**, and **Counting Sort**, based on their complexity, memory usage, and behavior.
+This document compares basic and advanced sorting algorithms including **Bubble Sort**, **Selection Sort**, **Insertion Sort**, **Merge Sort**, **Quick Sort**, **Counting Sort**, and **Radix Sort**, based on their complexity, memory usage, and behavior.
 
 ---
 
 ## 📊 Algorithm Comparison Table
 
-| Algorithm           | Time Complexity (Best) | Time Complexity (Avg) | Time Complexity (Worst) | Space Complexity | Stable | In-Place |
-| ------------------- | ---------------------- | ---------------------- | ------------------------ | ---------------- | ------ | -------- |
-| Bubble Sort         | O(n)                   | O(n²)                  | O(n²)                    | O(1)             | ✅      | ✅        |
-| Selection Sort      | O(n²)                  | O(n²)                  | O(n²)                    | O(1)             | ❌      | ✅        |
-| Insertion Sort      | O(n)                   | O(n²)                  | O(n²)                    | O(1)             | ✅      | ✅        |
-| Quick Sort          | O(n log n)             | O(n log n)             | O(n²)                    | O(log n)         | ❌      | ✅        |
-| Merge Sort          | O(n log n)             | O(n log n)             | O(n log n)               | O(n)             | ✅      | ❌        |
-| Heap Sort           | O(n log n)             | O(n log n)             | O(n log n)               | O(1)             | ❌      | ✅        |
-| Counting Sort       | O(n + k)               | O(n + k)               | O(n + k)                 | O(k)             | ✅      | ❌        |
+| Algorithm      | Time Complexity (Best) | Time Complexity (Avg) | Time Complexity (Worst) | Space Complexity | Stable | In-Place |
+| -------------- | ---------------------- | --------------------- | ----------------------- | ---------------- | ------ | -------- |
+| Bubble Sort    | O(n)                   | O(n²)                 | O(n²)                   | O(1)             | Yes    | Yes      |
+| Selection Sort | O(n²)                  | O(n²)                 | O(n²)                   | O(1)             | No     | Yes      |
+| Insertion Sort | O(n)                   | O(n²)                 | O(n²)                   | O(1)             | Yes    | Yes      |
+| Merge Sort     | O(n log n)             | O(n log n)            | O(n log n)              | O(n)             | Yes    | No       |
+| Quick Sort     | O(n log n)             | O(n log n)            | O(n²)                   | O(log n)         | No     | Yes      |
+| Counting Sort  | O(n + k)               | O(n + k)              | O(n + k)                | O(n + k)         | Yes    | No       |
+| Radix Sort     | O(nk)                  | O(nk)                 | O(nk)                   | O(n + k)         | Yes    | No       |
 
-
-## 🧠 Algorithm Overviews
-
-### 🔁 Bubble Sort
-
-**Idea**: Repeatedly compare adjacent elements and swap if needed, pushing the largest value to the end in each pass.  
-**Sorted element after each pass**: Largest value "bubbles" to the end.
+* `n` = number of elements
+* `k` = range of the input (Counting Sort) or number of digits (Radix Sort)
 
 ---
 
-### 🔍 Selection Sort
+## 🔁 Bubble Sort
 
-**Idea**: Repeatedly find the minimum and place it at the beginning.  
-**Sorted element after each pass**: Smallest value placed at the correct position.
+* **Idea**: Repeatedly compare adjacent elements and swap if they are in the wrong order.
+* **Best for**: Small arrays or detecting nearly-sorted arrays.
 
----
-
-### 🧩 Insertion Sort
-
-**Idea**: Insert each new item into the sorted subarray on the left.  
-**Sorted element after each pass**: First `k` elements are sorted after `k` passes.
-
----
-
-### ⚡ Quick Sort (Divide and Conquer)
-
-**Idea**: Choose a pivot, partition the array, and recursively sort subarrays.  
-**Sorted element after each partition**: Pivot is placed at its final sorted position.
+```text
+Time: O(n²) worst/avg, O(n) best  
+Space: O(1)  
+Stable: ✅  
+In-place: ✅  
+```
 
 ---
 
-### 🌊 Merge Sort
+## 🔄 Selection Sort
 
-**Idea**: Divide the array, sort each half, and merge.  
-**Sorted element after each merge**: Final merge gives the sorted result.
+* **Idea**: Find the minimum element in each pass and move it to the correct position.
+* **Best for**: Small datasets when memory writes are expensive.
 
----
-
-### 🏔 Heap Sort
-
-**Idea**: Build a max-heap, repeatedly remove the root (max) and heapify the reduced heap.  
-**Sorted element after each pass**: Largest element is placed at the end of the unsorted portion.
-
----
-
-### 🧮 Counting Sort
-
-**Idea**: Count the frequency of each value and use cumulative counts to place elements directly into the correct sorted position.  
-**Sorted element after each pass**: All elements are placed in their final position in a single pass using the frequency table.
+```text
+Time: O(n²) in all cases  
+Space: O(1)  
+Stable: ❌  
+In-place: ✅  
+```
 
 ---
 
-## ✅ Advantages and ❌ Disadvantages
+## ➕ Insertion Sort
 
-### Bubble Sort
+* **Idea**: Build a sorted section of the array by inserting each element into its correct position.
+* **Best for**: Small or mostly sorted arrays.
 
-✅ Simple  
-✅ Stable  
-✅ In-place  
-❌ Very slow  
-❌ Excessive comparisons/swaps
-
----
-
-### Selection Sort
-
-✅ Fewer swaps than bubble sort  
-✅ In-place  
-❌ Unstable  
-❌ Always O(n²), even if sorted
+```text
+Time: O(n²) worst, O(n) best  
+Space: O(1)  
+Stable: ✅  
+In-place: ✅  
+```
 
 ---
 
-### Insertion Sort
+## 🧬 Merge Sort
 
-✅ Efficient on small/mostly sorted data  
-✅ Stable  
-✅ Adaptive (O(n) on sorted input)  
-❌ Still O(n²) worst case
+* **Idea**: Divide the array into halves, sort each half recursively, and merge.
+* **Best for**: Large arrays where stability is needed.
 
----
-
-### Quick Sort
-
-✅ Very fast on average  
-✅ In-place  
-❌ Unstable  
-❌ Worst case O(n²) with bad pivot
+```text
+Time: O(n log n)  
+Space: O(n)  
+Stable: ✅  
+In-place: ❌  
+```
 
 ---
 
-### Merge Sort
+## ⚡ Quick Sort
 
-✅ Stable  
-✅ Always O(n log n)  
-✅ Great for linked lists  
-❌ Uses O(n) extra space  
-❌ Not in-place
+* **Idea**: Choose a pivot, partition the array, and recursively sort the parts.
+* **Best for**: General-purpose fast sorting.
 
----
-
-### Heap Sort
-
-✅ Time-guaranteed O(n log n)  
-✅ In-place  
-✅ Doesn’t degrade with bad data  
-❌ Unstable  
-❌ Not as fast in practice as Quick Sort (due to more swaps)
+```text
+Time: O(n log n) avg, O(n²) worst  
+Space: O(log n)  
+Stable: ❌  
+In-place: ✅  
+```
 
 ---
 
-### Counting Sort
+## 📊 Counting Sort
 
-✅ Linear time for small value ranges  
-✅ Stable  
-✅ Great for integers or categories  
-❌ Uses O(k) space  
-❌ Not in-place  
-❌ Works only on discrete, integer-like data
+* **Idea**: Count the frequency of each value and use cumulative counts to place elements in the correct position.
 
----
+* **Best for**: Sorting integers in a small known range (e.g. \[0, 100]).
 
-## 💡 Why Insertion Sort Is Better Than Bubble & Selection
+```text
+Time: O(n + k), where k is the range of input  
+Space: O(n + k)  
+Stable: ✅  
+In-place: ❌  
+```
 
-* Adapts to sorted input: O(n) best case  
-* Fewer swaps than bubble  
-* Stable (unlike selection)  
-* Faster in practice on small datasets
+### Example:
 
----
+Input: `[4, 2, 2, 8, 3, 3, 1]`
 
-## ⚔ Bubble vs Selection
-
-| Feature     | Bubble Sort | Selection Sort |
-| ----------- | ----------- | -------------- |
-| Swaps       | High        | Minimal        |
-| Comparisons | O(n²)       | O(n²)          |
-| Stability   | ✅ Yes       | ❌ No          |
-| Adaptive    | ✅ O(n)      | ❌ No          |
+* Count frequencies → `[0,1,2,2,1,0,0,0,1]`
+* Prefix sum → `[0,1,3,5,6,6,6,6,7]`
+* Build output from end → `[1,2,2,3,3,4,8]`
 
 ---
 
-## ⚔ Quick Sort vs Merge Sort
+## 🔢 Radix Sort
 
-| Feature      | Quick Sort | Merge Sort   |
-| ------------ | ---------- | ------------ |
-| Time (Avg)   | O(n log n) | O(n log n)   |
-| Time (Worst) | ❌ O(n²)    | ✅ O(n log n) |
-| Space        | ✅ O(log n) | ❌ O(n)       |
-| Stable       | ❌ No       | ✅ Yes        |
-| In-place     | ✅ Yes      | ❌ No         |
+* **Idea**: Sort numbers by processing each digit from least significant to most significant using a stable sort like Counting Sort.
 
----
+* **Best for**: Sorting numbers with a fixed number of digits (e.g. 32-bit integers).
 
-## ⚔ Merge Sort vs Heap Sort
+```text
+Time: O(nk), where k is the number of digits  
+Space: O(n + k)  
+Stable: ✅  
+In-place: ❌  
+```
 
-| Feature  | Merge Sort   | Heap Sort  |
-| -------- | ------------ | ---------- |
-| Time     | O(n log n)   | O(n log n) |
-| Space    | ❌ O(n)       | ✅ O(1)     |
-| Stable   | ✅ Yes        | ❌ No       |
-| In-place | ❌ No         | ✅ Yes      |
-| Use Case | Linked lists | Arrays     |
+### Example:
 
----
+Input: `[170, 45, 75, 90, 802, 24, 2, 66]`
 
-## ⚔ Counting Sort vs Quick Sort
+Sort by each digit:
 
-| Feature      | Counting Sort | Quick Sort     |
-| ------------ | ------------- | -------------- |
-| Time (Avg)   | ✅ O(n + k)    | ✅ O(n log n)   |
-| Time (Worst) | ✅ O(n + k)    | ❌ O(n²)        |
-| Space        | ❌ O(k)        | ✅ O(log n)     |
-| Stable       | ✅ Yes         | ❌ No           |
-| In-place     | ❌ No          | ✅ Yes          |
-| Input Type   | Integers only | Any comparable |
+1. LSD (units) → `[170, 90, 802, 2, 24, 45, 75, 66]`
+2. Tens → `[802, 2, 24, 45, 66, 170, 75, 90]`
+3. Hundreds → `[2, 24, 45, 66, 75, 90, 170, 802]`
 
 ---
 
-## ⚔ Counting Sort vs Merge Sort
-
-| Feature   | Counting Sort | Merge Sort |
-| --------- | ------------- | ---------- |
-| Time      | O(n + k)      | O(n log n) |
-| Space     | O(k)          | O(n)       |
-| Stable    | ✅ Yes         | ✅ Yes      |
-| Use Case  | Small-range ints | Linked lists / stable general sorting |
-| In-place  | ❌ No          | ❌ No       |
-
----
-
-## ⚠ What is Stability?
-
-**Stable Sort** = Equal elements maintain their relative order.
-
-🔸 Original: `[(3, A), (2, B), (3, C)]`  
-🔸 Stable:   `[(2, B), (3, A), (3, C)]` ✅  
-🔸 Unstable: `[(2, B), (3, C), (3, A)]` ❌
-
----
-
-## ❌ Why Selection and Quick Sort Are Unstable
-
-* **Selection Sort**: Swaps may move equal elements past each other.  
-* **Quick Sort**: Partitioning doesn't preserve the order of equal elements relative to pivot.
-
----
-
-## 📌 Summary
-
-| Scenario                         | Best Choice            |
-| -------------------------------- | ---------------------- |
-| Small / nearly sorted            | Insertion Sort         |
-| Worst-case guaranteed            | Merge Sort             |
-| In-place fast sorting            | Quick Sort             |
-| Limited memory, worst-case      | Heap Sort              |
-| Stability needed                 | Merge / Insertion / Counting |
-| Integers, small range            | Counting Sort          |
-| Educational / visual             | Bubble, Selection      |
+Let me know if you want to add Heap Sort, Bucket Sort, TimSort, or diagrams!
