@@ -114,31 +114,4 @@ Input: `[4, 2, 2, 8, 3, 3, 1]`
 * Prefix sum → `[0,1,3,5,6,6,6,6,7]`
 * Build output from end → `[1,2,2,3,3,4,8]`
 
----
 
-## 🔢 Radix Sort
-
-* **Idea**: Sort numbers by processing each digit from least significant to most significant using a stable sort like Counting Sort.
-
-* **Best for**: Sorting numbers with a fixed number of digits (e.g. 32-bit integers).
-
-```text
-Time: O(nk), where k is the number of digits  
-Space: O(n + k)  
-Stable: ✅  
-In-place: ❌  
-```
-
-### Example:
-
-Input: `[170, 45, 75, 90, 802, 24, 2, 66]`
-
-Sort by each digit:
-
-1. LSD (units) → `[170, 90, 802, 2, 24, 45, 75, 66]`
-2. Tens → `[802, 2, 24, 45, 66, 170, 75, 90]`
-3. Hundreds → `[2, 24, 45, 66, 75, 90, 170, 802]`
-
----
-
-Let me know if you want to add Heap Sort, Bucket Sort, TimSort, or diagrams!
