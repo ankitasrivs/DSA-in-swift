@@ -16,9 +16,6 @@ This document compares basic and advanced sorting algorithms including **Bubble 
 | Heap Sort           | O(n log n)             | O(n log n)             | O(n log n)               | O(1)             | ❌      | ✅        |
 | Counting Sort       | O(n + k)               | O(n + k)               | O(n + k)                 | O(k)             | ✅      | ❌        |
 
-> ℹ️ `k` = range of input values (`max - min + 1`)
-
----
 
 ## 🧠 Algorithm Overviews
 
