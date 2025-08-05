@@ -1,4 +1,4 @@
-func binarySearch(arr: [Int]) {
+func countingSort(arr: [Int]) {
     guard let minElem = arr.min(), let maxEl = arr.max() else {
         return
     }
@@ -23,5 +23,5 @@ func binarySearch(arr: [Int]) {
 
 }
 
-print(binarySearch(arr:  [-5, -10, 0, -3, 8, 5, -1, 10]))
+print(countingSort(arr:  [-5, -10, 0, -3, 8, 5, -1, 10]))
 
