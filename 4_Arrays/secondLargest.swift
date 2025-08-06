@@ -28,6 +28,20 @@ func secondLargest(arr: [Int]) {
 
 
 /*
+ Time Complexity
+The loop: for i in 1..<arr.count iterates through the array once (starting from index 1).
+
+Each operation inside the loop (comparison and assignment) is constant time: O(1).
+
+🔹 Total Time Complexity: O(n)
+Where n is the number of elements in the array.
+
+✅ Space Complexity
+Only a fixed number of variables are used: firstLargest and secondLargest, both of which are Ints.
+
+No additional data structures are used that depend on input size.
+
+🔹 Total Space Complexity: O(1)
 | Metric          | Value                                           |
 | --------------- | ----------------------------------------------- |
 | **Time**        | O(n)                                            |
