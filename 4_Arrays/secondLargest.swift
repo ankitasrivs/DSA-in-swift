@@ -32,6 +32,6 @@ func secondLargest(arr: [Int]) {
 | --------------- | ----------------------------------------------- |
 | **Time**        | O(n)                                            |
 | **Space**       | O(1)                                            |
-| **Fix needed?** | Yes, change loop to cover all indices (`i = 0`) |
+
 
 */
