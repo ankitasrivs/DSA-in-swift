@@ -1,8 +1,7 @@
 
-
 # 🧮 Comparison of Sorting Algorithms
 
-This document compares basic and advanced sorting algorithms including **Bubble Sort**, **Selection Sort**, **Insertion Sort**, **Merge Sort**, **Quick Sort**, **Counting Sort**, and **Radix Sort**, based on their complexity, memory usage, and behavior.
+This document compares basic and advanced sorting algorithms including **Bubble Sort**, **Selection Sort**, **Insertion Sort**, **Merge Sort**, **Quick Sort**, **Counting Sort**, **Radix Sort**, and **Bucket Sort**, based on their complexity, memory usage, and behavior.
 
 ---
 
@@ -17,9 +16,10 @@ This document compares basic and advanced sorting algorithms including **Bubble 
 | Quick Sort     | O(n log n)             | O(n log n)            | O(n²)                   | O(log n)         | No     | Yes      |
 | Counting Sort  | O(n + k)               | O(n + k)              | O(n + k)                | O(n + k)         | Yes    | No       |
 | Radix Sort     | O(nk)                  | O(nk)                 | O(nk)                   | O(n + k)         | Yes    | No       |
+| Bucket Sort    | O(n + k)               | O(n + k)              | O(n²)                   | O(n + k)         | Yes    | No       |
 
-> `n` = number of elements,
-> `k` = range of input (Counting Sort) or number of digits (Radix Sort)
+> `n` = number of elements
+> `k` = range of values or number of digits/buckets
 
 ---
 
@@ -118,7 +118,7 @@ Input: `[4, 2, 2, 8, 3, 3, 1]`
 ## 🧮 Radix Sort
 
 **Idea**: Sort numbers digit by digit starting from the least significant digit, using a stable sorting algorithm like Counting Sort at each digit level.
-**Best for**: Sorting large sets of integers or strings when maximum number of digits is small.
+**Best for**: Sorting large sets of integers or strings when the maximum number of digits is small.
 
 ```text
 Time: O(nk), where k is the number of digits  
@@ -126,3 +126,31 @@ Space: O(n + k)
 Stable: ✅  
 In-place: ❌  
 ```
+
+---
+
+## 🪣 Bucket Sort
+
+**Idea**: Divide the input into a fixed number of buckets, sort each bucket individually, and concatenate.
+**Best for**: Uniformly distributed floating-point numbers in the range \[0, 1).
+
+```text
+Time: O(n + k) average, O(n²) worst  
+Space: O(n + k)  
+Stable: ✅  
+In-place: ❌  
+```
+
+---
+
+## 🆚 Counting vs Radix vs Bucket vs Merge/Quick
+
+| Feature         | Counting Sort             | Radix Sort                            | Bucket Sort                                     | Merge/Quick Sort                            |
+| --------------- | ------------------------- | ------------------------------------- | ----------------------------------------------- | ------------------------------------------- |
+| **Type**        | Non-comparison            | Non-comparison                        | Non-comparison                                  | Comparison-based                            |
+| **Input**       | Integers (known range)    | Integers or Strings                   | Floats (uniformly distributed)                  | Any                                         |
+| **Stable**      | Yes                       | Yes                                   | Yes (if bucket sort uses stable sorting inside) | Merge: Yes, Quick: No                       |
+| **In-place**    | No                        | No                                    | No                                              | Merge: No, Quick: Yes                       |
+| **Performance** | Very fast if `k` is small | Efficient if digit count `k` is small | Fast with uniform data                          | Consistently good                           |
+| **Drawbacks**   | Large `k` → memory usage  | Needs stable sort, not in-place       | Poor for skewed data                            | Merge needs space, Quick has bad worst case |
+
