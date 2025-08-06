@@ -18,15 +18,15 @@ This document compares basic and advanced sorting algorithms including **Bubble 
 | Counting Sort  | O(n + k)               | O(n + k)              | O(n + k)                | O(n + k)         | Yes    | No       |
 | Radix Sort     | O(nk)                  | O(nk)                 | O(nk)                   | O(n + k)         | Yes    | No       |
 
-* `n` = number of elements
-* `k` = range of the input (Counting Sort) or number of digits (Radix Sort)
+> `n` = number of elements,
+> `k` = range of input (Counting Sort) or number of digits (Radix Sort)
 
 ---
 
 ## 🔁 Bubble Sort
 
-* **Idea**: Repeatedly compare adjacent elements and swap if they are in the wrong order.
-* **Best for**: Small arrays or detecting nearly-sorted arrays.
+**Idea**: Repeatedly compare adjacent elements and swap if they are in the wrong order.
+**Best for**: Small arrays or detecting nearly-sorted arrays.
 
 ```text
 Time: O(n²) worst/avg, O(n) best  
@@ -39,8 +39,8 @@ In-place: ✅
 
 ## 🔄 Selection Sort
 
-* **Idea**: Find the minimum element in each pass and move it to the correct position.
-* **Best for**: Small datasets when memory writes are expensive.
+**Idea**: Find the minimum element in each pass and move it to the correct position.
+**Best for**: Small datasets when memory writes are expensive.
 
 ```text
 Time: O(n²) in all cases  
@@ -53,8 +53,8 @@ In-place: ✅
 
 ## ➕ Insertion Sort
 
-* **Idea**: Build a sorted section of the array by inserting each element into its correct position.
-* **Best for**: Small or mostly sorted arrays.
+**Idea**: Build a sorted section of the array by inserting each element into its correct position.
+**Best for**: Small or mostly sorted arrays.
 
 ```text
 Time: O(n²) worst, O(n) best  
@@ -67,8 +67,8 @@ In-place: ✅
 
 ## 🧬 Merge Sort
 
-* **Idea**: Divide the array into halves, sort each half recursively, and merge.
-* **Best for**: Large arrays where stability is needed.
+**Idea**: Divide the array into halves, sort each half recursively, and merge.
+**Best for**: Large arrays where stability is needed.
 
 ```text
 Time: O(n log n)  
@@ -81,8 +81,8 @@ In-place: ❌
 
 ## ⚡ Quick Sort
 
-* **Idea**: Choose a pivot, partition the array, and recursively sort the parts.
-* **Best for**: General-purpose fast sorting.
+**Idea**: Choose a pivot, partition the array, and recursively sort the parts.
+**Best for**: General-purpose fast sorting.
 
 ```text
 Time: O(n log n) avg, O(n²) worst  
@@ -95,9 +95,8 @@ In-place: ✅
 
 ## 📊 Counting Sort
 
-* **Idea**: Count the frequency of each value and use cumulative counts to place elements in the correct position.
-
-* **Best for**: Sorting integers in a small known range (e.g. \[0, 100]).
+**Idea**: Count the frequency of each value and use cumulative counts to place elements in the correct position.
+**Best for**: Sorting integers in a small known range (e.g. \[0, 100]).
 
 ```text
 Time: O(n + k), where k is the range of input  
@@ -106,7 +105,7 @@ Stable: ✅
 In-place: ❌  
 ```
 
-### Example:
+### Example
 
 Input: `[4, 2, 2, 8, 3, 3, 1]`
 
@@ -114,4 +113,16 @@ Input: `[4, 2, 2, 8, 3, 3, 1]`
 * Prefix sum → `[0,1,3,5,6,6,6,6,7]`
 * Build output from end → `[1,2,2,3,3,4,8]`
 
+---
 
+## 🧮 Radix Sort
+
+**Idea**: Sort numbers digit by digit starting from the least significant digit, using a stable sorting algorithm like Counting Sort at each digit level.
+**Best for**: Sorting large sets of integers or strings when maximum number of digits is small.
+
+```text
+Time: O(nk), where k is the number of digits  
+Space: O(n + k)  
+Stable: ✅  
+In-place: ❌  
+```
