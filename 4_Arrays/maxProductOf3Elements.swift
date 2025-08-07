@@ -101,3 +101,10 @@ var arr1 = [-10, -3, 5, 6, -20]
 
 maximumProductOptimised(arr: arr1)
 
+/*
+| Metric           | Value  |
+| ---------------- | ------ |
+| Time Complexity  | `O(n)` |
+| Space Complexity | `O(1)` |
+
+*/
