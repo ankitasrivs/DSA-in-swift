@@ -1,4 +1,4 @@
-// Find second largest element in array
+// https://www.geeksforgeeks.org/dsa/find-second-largest-element-array/
 
 
 func secondLargest(arr: [Int]) {
