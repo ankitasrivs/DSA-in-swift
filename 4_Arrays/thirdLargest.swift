@@ -1,22 +1,43 @@
 
 // https://www.geeksforgeeks.org/dsa/third-largest-element-array-distinct-elements/
 func thirdLargest(arr: [Int]) {
-    var secondLargest = Int.min
     var firstLargest = Int.min
+    var secondLargest = Int.min
     var thirdLargest = Int.min
-    for i in 0..<arr.count {
-        if arr[i] > firstLargest {
+
+    for num in arr {
+        if num > firstLargest {
             thirdLargest = secondLargest
             secondLargest = firstLargest
-            firstLargest = arr[i]
-        } else if secondLargest < arr[i] && arr[i] != firstLargest {
+            firstLargest = num
+        } else if num > secondLargest && num != firstLargest {
             thirdLargest = secondLargest
-            secondLargest = arr[i]
-        } else if thirdLargest < arr[i] && arr[i] != secondLargest && arr[i] != firstLargest {
-            thirdLargest = arr[i]
+            secondLargest = num
+        } else if num > thirdLargest && num != secondLargest && num != firstLargest {
+            thirdLargest = num
         }
     }
-    print(thirdLargest)
+
+    if thirdLargest == Int.min {
+        print("Less than 3 distinct elements")
+    } else {
+        print(thirdLargest)
+    }
 }
 
-thirdLargest(arr: [1, 14, 2, 16, 10, 20, 16,20])
+/*
+✅ Time and Space Complexity
+Time Complexity:
+Single pass through array: O(n)
+
+Constant-time operations inside loop
+
+➡️ O(n)
+
+Space Complexity:
+Only uses three Int variables
+
+➡️ O(1)
+
+
+*/
