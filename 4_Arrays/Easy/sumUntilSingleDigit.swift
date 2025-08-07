@@ -15,6 +15,17 @@ func sumUntilSingleDigit(_ num: Int) -> Int {
 }
 
 
+/*
+Time: O(n*n)
+Space: O(1)
+*/
+
 func digitalRoot(_ num: Int) -> Int {
     return num == 0 ? 0 : 1 + (num - 1) % 9
 }
+
+
+/*
+Time: O(1)
+Space: O(1)
+*/
