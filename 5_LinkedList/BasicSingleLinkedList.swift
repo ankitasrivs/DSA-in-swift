@@ -1,4 +1,12 @@
-// This linkedlist will cover basic linkedinOperation 
+//
+//  main.swift
+//  DSQuestions
+//
+//  Created by Ankita Srivastava on 13/08/25.
+//
+
+import Foundation
+// This linkedlist will cover basic linkedinOperation
 
 class Node<T> {
     var value: T
@@ -18,14 +26,13 @@ class BasicLinkedList<T> {
     var head: Node<T>?
 
 
-    // This method will add node at first
+    // This method will add node at last
     func insertLinkedFirst(input: Node<T>?) {
         input?.next = head
         // Now head shud be input
         head = input
     }
 
-    // insert at position
     func atSpecificPos(input: Node<T>?, pos: Int) {
         if pos == 0 {
             input?.next = head
@@ -44,7 +51,6 @@ class BasicLinkedList<T> {
         node?.next?.next = next
     }
 
-    // At last
     func insertLinkedLast(input: Node<T>?) {
         guard let head else {
             head = input
@@ -83,6 +89,34 @@ class BasicLinkedList<T> {
 
     }
 
+    func deleteFirst() {
+        head = head?.next
+    }
+
+    func deletelast() {
+        var node = head
+        while node?.next?.next != nil {
+            node = node?.next
+        }
+        node?.next = nil
+    }
+
+    func deleteAtPos(pos: Int) {
+        if pos == 0 {
+            head = head?.next
+            return
+        }
+        var node = head
+        var k = pos - 1
+
+        while k != 0 && node?.next != nil {
+            node = node?.next
+            k -= 1
+        }
+        let next = node?.next?.next
+        node?.next = next
+    }
+
 }
 
 let newNode = Node(value: 0)
@@ -93,4 +127,14 @@ newbasicLinkedList.insertLinkedFirst(input: Node(value: -1))
 newbasicLinkedList.atSpecificPos(input:  Node(value: -2), pos: 0)
 newbasicLinkedList.atSpecificPos(input:  Node(value: 20), pos: 1)
 newbasicLinkedList.traverseLinkedListIteratively()
+print("deleting first")
+newbasicLinkedList.deleteFirst()
+newbasicLinkedList.traverseLinkedListRecusrsive(node: newbasicLinkedList.head)
+
+print("deleting last")
+newbasicLinkedList.deletelast()
+newbasicLinkedList.traverseLinkedListRecusrsive(node: newbasicLinkedList.head)
+
+print("deleting pos")
+newbasicLinkedList.deleteAtPos(pos: 2)
 newbasicLinkedList.traverseLinkedListRecusrsive(node: newbasicLinkedList.head)
