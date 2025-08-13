@@ -21,4 +21,15 @@ struct Node {
     int data;
     struct Node* next; // points to the next node
 };
+```
+## 3. Single vs Double vs Circular
 
+| Feature                       | **Singly Linked List** | **Doubly Linked List** | **Circular Linked List**             |
+| ----------------------------- | ---------------------- | ---------------------- | ------------------------------------ |
+| **Pointers per Node**         | 1 (`next`)             | 2 (`prev`, `next`)     | 1 or 2 (depends on type)             |
+| **Memory Usage**              | Low                    | Higher (extra pointer) | Low/High depending on type           |
+| **Traversal Direction**       | Forward only           | Forward & backward     | Forward (or both if doubly circular) |
+| **Last Node Points To**       | NULL                   | NULL                   | Head node (first node)               |
+| **Insert/Delete Efficiency**  | O(1) if position known | O(1) if position known | O(1) if position known               |
+| **Use Cases**                 | Simple lists, queues   | Undo/redo, history nav | Round-robin, loops                   |
+| **Implementation Complexity** | Simple                 | Moderate               | Moderate/High                        |
