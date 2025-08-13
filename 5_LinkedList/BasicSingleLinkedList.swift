@@ -1,7 +1,4 @@
-// Single linked list only have next pointer. There is only one way to access and element which is to use loop unlike arry you cannot access directly via index. ex; arr[0]
-// This linkedlist will cover basic linkedinOperation
-
-// This linkedlist will cover basic linkedinOperation
+// This linkedlist will cover basic linkedinOperation 
 
 class Node<T> {
     var value: T
@@ -21,13 +18,33 @@ class BasicLinkedList<T> {
     var head: Node<T>?
 
 
-    // This method will add node at last
+    // This method will add node at first
     func insertLinkedFirst(input: Node<T>?) {
         input?.next = head
         // Now head shud be input
         head = input
     }
 
+    // insert at position
+    func atSpecificPos(input: Node<T>?, pos: Int) {
+        if pos == 0 {
+            input?.next = head
+            head = input
+            return
+        }
+
+        var node = head
+        var k = pos
+        while k != 1 && node?.next != nil {
+            node = node?.next
+            k -= 1
+        }
+        let next = node?.next
+        node?.next = input
+        node?.next?.next = next
+    }
+
+    // At last
     func insertLinkedLast(input: Node<T>?) {
         guard let head else {
             head = input
@@ -73,5 +90,7 @@ let newbasicLinkedList = BasicLinkedList<Int>()
 newbasicLinkedList.insertLinkedLast(input: newNode)
 newbasicLinkedList.insertLinkedLast(input: Node(value: 1))
 newbasicLinkedList.insertLinkedFirst(input: Node(value: -1))
+newbasicLinkedList.atSpecificPos(input:  Node(value: -2), pos: 0)
+newbasicLinkedList.atSpecificPos(input:  Node(value: 20), pos: 1)
 newbasicLinkedList.traverseLinkedListIteratively()
 newbasicLinkedList.traverseLinkedListRecusrsive(node: newbasicLinkedList.head)
