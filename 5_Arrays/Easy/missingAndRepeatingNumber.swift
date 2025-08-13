@@ -1,3 +1,6 @@
+// https://www.geeksforgeeks.org/dsa/find-a-repeating-and-a-missing-number/
+
+
 func findMissingAndRepeating(_ arr: [Int]) -> (repeating: Int, missing: Int) {
     var xorAll = 0
     
