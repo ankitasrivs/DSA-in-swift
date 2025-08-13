@@ -14,6 +14,7 @@ A **Linked List** is a linear data structure where elements (**nodes**) are stor
 Each node contains:
 1. **Data** — value stored.
 2. **Pointer(s)** — reference(s) to next/previous nodes.
+3. Tail means last node and head means first
 
 Example in C:
 ```c
