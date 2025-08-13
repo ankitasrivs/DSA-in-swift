@@ -1,6 +1,8 @@
 // Single linked list only have next pointer. There is only one way to access and element which is to use loop unlike arry you cannot access directly via index. ex; arr[0]
 // This linkedlist will cover basic linkedinOperation
 
+// This linkedlist will cover basic linkedinOperation
+
 class Node<T> {
     var value: T
     var next: Node?
@@ -20,6 +22,11 @@ class BasicLinkedList<T> {
 
 
     // This method will add node at last
+    func insertLinkedFirst(input: Node<T>?) {
+        input?.next = head
+        // Now head shud be input
+        head = input
+    }
 
     func insertLinkedLast(input: Node<T>?) {
         guard let head else {
@@ -65,5 +72,6 @@ let newNode = Node(value: 0)
 let newbasicLinkedList = BasicLinkedList<Int>()
 newbasicLinkedList.insertLinkedLast(input: newNode)
 newbasicLinkedList.insertLinkedLast(input: Node(value: 1))
+newbasicLinkedList.insertLinkedFirst(input: Node(value: -1))
 newbasicLinkedList.traverseLinkedListIteratively()
-newbasicLinkedList.traverseLinkedListRecusrsive(node: newNode)
+newbasicLinkedList.traverseLinkedListRecusrsive(node: newbasicLinkedList.head)
