@@ -1,105 +1,165 @@
 // https://www.geeksforgeeks.org/dsa/find-a-repeating-and-a-missing-number/
 
 /*
-1. Basics of Bits
+Got it — you want **full detailed notes** in simple language, but with **complete code examples** for each DSA bit manipulation trick, including the *turn off rightmost bit* and *n & -n* parts.
 
-Bit: A binary digit (0 or 1).
+Here’s the start of the **bit manipulation section** of the notes in that style:
 
-Computers store everything in binary — numbers, text, images.
+---
 
-Each position in binary has a value: 1, 2, 4, 8, 16, … (powers of 2).
+## **Bit Manipulation Tricks — With Detailed Explanation and Code**
 
-Example:
+---
 
-5 in binary = 101
+### **1. Turn Off the Rightmost Set Bit**
 
-2. Common Bit Operators
+**Formula:**
 
-AND (&) → 1 if both bits are 1.
+```swift
+n & (n - 1)
+```
 
-OR (|) → 1 if at least one bit is 1.
+**Why it works:**
 
-XOR (^) → 1 if bits are different.
+* In binary, subtracting `1` from a number flips all bits to the right of the **rightmost set bit** (including that bit).
+* AND-ing with the original number sets that bit to `0` while leaving all higher bits unchanged.
 
-NOT (~) → flips bits (1 → 0, 0 → 1).
+**Example:**
 
-Left Shift (<<) → moves bits left, multiplies by 2.
+```
+n = 12  → 1100
+n-1     → 1011
+n & n-1 → 1000
+```
 
-Right Shift (>>) → moves bits right, divides by 2.
+Rightmost set bit is turned off.
 
-3. Common Bit Tricks
+**Swift Code:**
 
-Check if a number is even:
+```swift
+func turnOffRightmostBit(_ n: Int) -> Int {
+    return n & (n - 1)
+}
 
-if (n & 1) == 0 { print("Even") }
+print(turnOffRightmostBit(12)) // 8
+```
 
-Turn off rightmost set bit:
+**Use case:**
 
-n = n & (n - 1)
+* Count number of set bits (Brian Kernighan’s Algorithm)
+* Remove elements from bitmasks
 
-Isolate rightmost set bit:
+---
 
-n & -n   // or  n & (~(n - 1))
+### **2. Extract the Rightmost Set Bit**
 
-Check if power of two:
+**Formula:**
 
-if (n > 0) && (n & (n - 1)) == 0 { print("Power of 2") }
+```swift
+n & -n
+```
 
-4. XOR Properties
+**Why it works:**
 
-a ^ a = 0 (same numbers cancel out)
+* `-n` in binary = two’s complement of `n` = `(~n) + 1`
+* This leaves only the rightmost set bit as `1`, everything else `0`.
 
-a ^ 0 = a
+**Example:**
 
-XOR is commutative & associative — order doesn’t matter.
+```
+n = 12  → 1100
+-n      → 0100 (two's complement)
+n & -n  → 0100 (rightmost set bit only)
+```
 
-Use in DSA:
+**Swift Code:**
 
-Find single number in array where every other number appears twice.
+```swift
+func rightmostSetBit(_ n: Int) -> Int {
+    return n & -n
+}
 
-Example:
+print(rightmostSetBit(12)) // 4
+```
 
-var res = 0
-for num in arr { res ^= num }
-print(res) // single number
+**Use case:**
 
-5. Missing & Repeating Number (XOR method)
+* Find a distinguishing bit in XOR problems (like finding missing/repeating numbers)
+* Group numbers based on a specific set bit
 
-Idea:
+---
 
-XOR all elements of array and numbers 1..N → gives X ^ Y.
+### **3. Check if a Number is a Power of Two**
 
-Find rightmost set bit → tells a position where X and Y differ.
+**Formula:**
 
-Split numbers into 2 groups based on that bit → XOR separately.
+```swift
+n > 0 && (n & (n - 1)) == 0
+```
 
-You’ll get X and Y.
+**Why it works:**
 
-Why?
+* Powers of two have exactly one `1` in binary.
+* `(n & (n - 1))` will be `0` if and only if `n` has only one set bit.
 
-That bit guarantees one number has 1 there, the other has 0.
+**Example:**
 
-Grouping & XORing cancels out all duplicates, leaving missing & repeating.
+```
+8 → 1000
+8-1 → 0111
+8 & 7 = 0  ✅
+```
 
-6. More Patterns in DSA
+**Swift Code:**
 
-Bitmasking: Represent sets with bits (1 = included, 0 = excluded).
+```swift
+func isPowerOfTwo(_ n: Int) -> Bool {
+    return n > 0 && (n & (n - 1)) == 0
+}
 
-Subsets generation: Use numbers from 0 to (1<<n)-1.
+print(isPowerOfTwo(8)) // true
+print(isPowerOfTwo(10)) // false
+```
 
-Fast multiplication/division by 2: Shifts.
+---
 
-Counting set bits: n & (n-1) loop.
+### **4. Swap Two Numbers Without a Temp Variable (XOR Swap)**
 
-Parity check: Count bits modulo 2.
+```swift
+a = a ^ b
+b = a ^ b
+a = a ^ b
+```
 
-7. Why Learn Bit Manipulation?
+**Why it works:**
 
-Speeds up certain problems from O(n²) to O(n).
+* XOR-ing twice with the same number returns the original number.
 
-Saves memory.
+**Swift Code:**
 
-Used in competitive programming, cryptography, compression.
+```swift
+var a = 5, b = 9
+a ^= b
+b ^= a
+a ^= b
+print(a, b) // 9 5
+```
+
+---
+
+If you want, I can prepare **the full DSA Bit Manipulation section** in this format covering:
+
+* Counting set bits
+* Odd/even check
+* Clearing specific bits
+* Setting specific bits
+* Toggling bits
+* Checking kth bit
+* XOR sum tricks
+* Using masks for subsets
+
+Do you want me to prepare the **full expanded notes** like this for *all* bit tricks in DSA? That would make it a complete reference.
+
 
 */
 func findMissingAndRepeating(_ arr: [Int]) -> (repeating: Int, missing: Int) {
