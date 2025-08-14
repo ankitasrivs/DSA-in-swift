@@ -117,6 +117,24 @@ class BasicLinkedList<T> {
         node?.next = next
     }
 
+
+    func count() {
+        var count = 0
+        var node = head
+        while node != nil {
+            count += 1
+            node = node?.next
+        }
+        print(count)
+    }
+
+    func countRecursive(node: Node<T>?, count: Int = 0) {
+        guard let node else {
+            print(count)
+            return
+        }
+        countRecursive(node: node.next,count: count + 1)
+    }
 }
 
 let newNode = Node(value: 0)
@@ -125,16 +143,8 @@ newbasicLinkedList.insertLinkedLast(input: newNode)
 newbasicLinkedList.insertLinkedLast(input: Node(value: 1))
 newbasicLinkedList.insertLinkedFirst(input: Node(value: -1))
 newbasicLinkedList.atSpecificPos(input:  Node(value: -2), pos: 0)
-newbasicLinkedList.atSpecificPos(input:  Node(value: 20), pos: 1)
-newbasicLinkedList.traverseLinkedListIteratively()
-print("deleting first")
-newbasicLinkedList.deleteFirst()
-newbasicLinkedList.traverseLinkedListRecusrsive(node: newbasicLinkedList.head)
 
-print("deleting last")
-newbasicLinkedList.deletelast()
-newbasicLinkedList.traverseLinkedListRecusrsive(node: newbasicLinkedList.head)
 
-print("deleting pos")
-newbasicLinkedList.deleteAtPos(pos: 2)
-newbasicLinkedList.traverseLinkedListRecusrsive(node: newbasicLinkedList.head)
+newbasicLinkedList.count()
+newbasicLinkedList.countRecursive(node: newbasicLinkedList.head)
+
