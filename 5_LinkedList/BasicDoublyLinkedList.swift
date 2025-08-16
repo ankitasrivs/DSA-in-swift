@@ -1,3 +1,20 @@
+// This linkedlist will cover basic DoublyLinkedList
+
+class DoublyNode<T: BinaryInteger> {
+    var value: T
+    var next: DoublyNode?
+    var prev: DoublyNode?
+
+    init(value: T, next: DoublyNode? = nil, prev: DoublyNode? = nil) {
+        self.value = value
+        self.next = next
+        self.prev = prev
+    }
+}
+
+
+// Use of prev and next node
+
 class BasicDoublyLinkedList<T: BinaryInteger> {
 
     // use a varaible to check if you have first node or not as we need first node to start iterating. Either pass it in function or create a variable
