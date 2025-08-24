@@ -236,4 +236,3 @@ func bstDelete<T: Comparable>(_ root: inout BSTNode<T>?, _ key: T) {
 }
 ```
 
-> **Note:** Without bal
