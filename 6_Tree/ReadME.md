@@ -1,1 +1,136 @@
-{"canmore.create_textdoc":{"name":"tree-dsa-theory","type":"document","content":"# 🌳 Tree Data Structure in Swift\n\nThis document covers the theory of trees in Data Structures and Algorithms (DSA), along with Swift code examples.\n\n---\n\n## 📖 What is a Tree?\n- A tree is a hierarchical data structure consisting of nodes.\n- The top node is called the root.\n- Each node may have 0 or more children.\n- A tree with no nodes is called an empty tree.\n\n### Properties of a Tree:\n1. A tree with n nodes has exactly n-1 edges.\n2. There is exactly one path between the root and any node.\n3. Trees are acyclic graphs.\n\n---\n\n## 📌 Important Terminologies\n- Root → The top-most node.\n- Parent → A node that has children.\n- Child → A node descended from another node.\n- Leaf → A node with no children.\n- Height → Longest path from root to a leaf.\n- Depth → Distance of a node from the root.\n\n---\n\n## 🌳 Types of Trees\n1. Binary Tree → Each node has at most 2 children (left & right).\n2. Binary Search Tree (BST) → Left child < Parent < Right child.\n3. Balanced Trees → AVL, Red-Black trees, etc.\n4. N-ary Tree → A node can have n children.\n\n---\n\n## 🔍 Tree Traversals\n\nTraversal = visiting all nodes in a tree in a specific order.\n\n### 1. DFS (Depth-First Search)\nDFS explores as deep as possible before backtracking.\n\nTypes:\n- Preorder (Root → Left → Right)\n- Inorder (Left → Root → Right)\n- Postorder (Left → Right → Root)\n\n✅ All three are DFS traversals.\n\n### 2. BFS (Breadth-First Search)\nBFS explores nodes level by level (top to bottom, left to right).\n\n- Also called Level Order Traversal.\n- Uses a Queue instead of recursion.\n\n---\n\n## ⚡ Swift Implementation\n\n### Tree Node Definition\nswift\nclass TreeNode {\n var val: Int\n var left: TreeNode?\n var right: TreeNode?\n\n init(_ val: Int) {\n self.val = val\n self.left = nil\n self.right = nil\n }\n}\n\n\n---\n\n### DFS Traversals (Recursive)\nswift\nfunc preorder(_ root: TreeNode?) {\n guard let root = root else { return }\n print(root.val, terminator: \" \")\n preorder(root.left)\n preorder(root.right)\n}\n\nfunc inorder(_ root: TreeNode?) {\n guard let root = root else { return }\n inorder(root.left)\n print(root.val, terminator: \" \")\n inorder(root.right)\n}\n\nfunc postorder(_ root: TreeNode?) {\n guard let root = root else { return }\n postorder(root.left)\n postorder(root.right)\n print(root.val, terminator: \" \")\n}\n\n\n---\n\n### BFS Traversal (Level Order)\nswift\nfunc levelOrder(_ root: TreeNode?) {\n guard let root = root else { return }\n var queue: [TreeNode] = [root]\n\n while !queue.isEmpty {\n let node = queue.removeFirst()\n print(node.val, terminator: \" \")\n\n if let left = node.left {\n queue.append(left)\n }\n if let right = node.right {\n queue.append(right)\n }\n }\n}\n\n\n---\n\n## 📝 Example Usage\nswift\nlet root = TreeNode(1)\nroot.left = TreeNode(2)\nroot.right = TreeNode(3)\nroot.left?.left = TreeNode(4)\nroot.left?.right = TreeNode(5)\n\nprint(\"Preorder (DFS):\", terminator: \" \")\npreorder(root) // 1 2 4 5 3\n\nprint(\"\\nInorder (DFS):\", terminator: \" \")\ninorder(root) // 4 2 5 1 3\n\nprint(\"\\nPostorder (DFS):\", terminator: \" \")\npostorder(root) // 4 5 2 3 1\n\nprint(\"\\nLevel Order (BFS):\", terminator: \" \")\nlevelOrder(root) // 1 2 3 4 5\n\n\n---\n\n## 🎯 Key Takeaways\n- DFS → Goes deep first (Preorder, Inorder, Postorder).\n- BFS → Goes level by level (Level Order).\n- DFS is usually recursive/stack-based, BFS is queue-based.\n- Both traversals are fundamental for solving tree problems in DSA.\n\n---\n\n🚀 Next step: Practice problems like finding tree height, checking if balanced, lowest common ancestor, etc."}}
+Got it 👍 The formatting of the `README.md` should be clean with proper Markdown hierarchy, fenced code blocks for Swift, and readable bullet points. Let me regenerate the **entire README.md** properly formatted:
+
+---
+
+# 🌳 Trees in Data Structures (DSA)
+
+## 📖 What is a Tree?
+
+A **tree** is a hierarchical data structure made up of nodes.
+
+* Each tree has a **root** node.
+* Each node can have **children**.
+* Nodes without children are called **leaves**.
+* Trees are widely used in databases, file systems, compilers, and searching algorithms.
+
+---
+
+## 🧩 Basic Terms
+
+* **Root** → Topmost node.
+* **Parent** → A node that has children.
+* **Child** → A node derived from a parent.
+* **Leaf** → A node with no children.
+* **Height** → The longest path from root to a leaf.
+* **Depth** → Distance from root to the current node.
+
+---
+
+## 🔍 Tree Traversals
+
+Traversal = visiting every node in some order. Two main categories:
+
+### 1️⃣ Depth-First Search (DFS)
+
+Goes **deep into one branch before backtracking**.
+
+* **Preorder (Root → Left → Right)**
+* **Inorder (Left → Root → Right)**
+* **Postorder (Left → Right → Root)**
+
+#### Swift Code
+
+```swift
+class TreeNode {
+    var val: Int
+    var left: TreeNode?
+    var right: TreeNode?
+    
+    init(_ val: Int) {
+        self.val = val
+        self.left = nil
+        self.right = nil
+    }
+}
+
+// MARK: - DFS Traversals
+func preorder(_ root: TreeNode?) {
+    guard let node = root else { return }
+    print(node.val, terminator: " ")
+    preorder(node.left)
+    preorder(node.right)
+}
+
+func inorder(_ root: TreeNode?) {
+    guard let node = root else { return }
+    inorder(node.left)
+    print(node.val, terminator: " ")
+    inorder(node.right)
+}
+
+func postorder(_ root: TreeNode?) {
+    guard let node = root else { return }
+    postorder(node.left)
+    postorder(node.right)
+    print(node.val, terminator: " ")
+}
+```
+
+---
+
+### 2️⃣ Breadth-First Search (BFS)
+
+Visits nodes **level by level** using a queue.
+This is also called **Level Order Traversal**.
+
+#### Swift Code
+
+```swift
+func levelOrder(_ root: TreeNode?) {
+    guard let root = root else { return }
+    
+    var queue: [TreeNode] = [root]
+    
+    while !queue.isEmpty {
+        let node = queue.removeFirst()
+        print(node.val, terminator: " ")
+        
+        if let left = node.left {
+            queue.append(left)
+        }
+        if let right = node.right {
+            queue.append(right)
+        }
+    }
+}
+```
+
+---
+
+## 📝 Example Tree
+
+```
+        1
+       / \
+      2   3
+     / \   \
+    4   5   6
+```
+
+### Traversal Results
+
+* **Preorder (DFS)** → `1 2 4 5 3 6`
+* **Inorder (DFS)** → `4 2 5 1 3 6`
+* **Postorder (DFS)** → `4 5 2 6 3 1`
+* **Level Order (BFS)** → `1 2 3 4 5 6`
+
+---
+
+✅ With this, you now know:
+
+* The **difference between BFS and DFS**
+* How **Inorder, Preorder, Postorder** are all **DFS**
+* How **Level Order** is **BFS**
+* Swift implementations of each
+
+---
