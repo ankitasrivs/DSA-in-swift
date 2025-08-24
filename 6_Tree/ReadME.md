@@ -83,6 +83,7 @@ Index mapping: `left = 2*i + 1`, `right = 2*i + 2`, `parent = (i - 1)/2`.
 ## 4. Traversals
 
 ### 4.1 DFS (Recursive)
+A tree, where we first completely traverse the left subtree and then move to the right subtree. 
 
 ```swift
 func preorder<T>(_ root: TreeNode<T>?, _ visit: (T) -> Void) {
