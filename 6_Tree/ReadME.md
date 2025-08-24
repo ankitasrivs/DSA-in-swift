@@ -1,6 +1,4 @@
-Got it 👍 The formatting of the `README.md` should be clean with proper Markdown hierarchy, fenced code blocks for Swift, and readable bullet points. Let me regenerate the **entire README.md** properly formatted:
 
----
 
 # 🌳 Trees in Data Structures (DSA)
 
