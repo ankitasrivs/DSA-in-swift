@@ -18,6 +18,11 @@ var low = 0
     print(-1)
 }
 
+/*
+Tine: O(logn)
+Space: O(1)
+*/
+
 func binarySearchrecursive(arr: [Int], x: Int, low: Int, high: Int) -> Int {
     if low > high {
         return -1
@@ -33,7 +38,10 @@ func binarySearchrecursive(arr: [Int], x: Int, low: Int, high: Int) -> Int {
         }
 
 }
-
+/*
+Tine: O(logn)
+Space: O(n) -> Recusrsion uses stack for callback of size n
+*/
 
 binarySearch(arr: [1,2,3,4,5], x: 4)
 let f = binarySearchrecursive(arr: [1,2,3,4,5], x: 4, low: 0, high: 4)
