@@ -326,7 +326,57 @@ class TreeImplementation<T: BinaryInteger> {
         preOrderRecusrsive(node: node.right)
     }
 
+    func preOrderMorris(node: Tree<T>?) -> [T] {
+        guard let node else {
+            return []
+        }
+        var curr:Tree<T>? = node
+        var res = [T]()
 
+        while let node = curr {
+            if node.left == nil {
+                // If ;eft is nil move to right after adding root in array
+
+                res.append(curr!.value!)
+                curr = curr?.right
+            } else {
+                var newNode = node.left
+                while newNode?.right != nil && newNode?.right !== curr {
+                    newNode = newNode?.right
+                }
+                if newNode?.right == nil {
+                    res.append(curr!.value!)
+                    newNode?.right = curr
+                    curr = curr?.left
+                } else {
+                    newNode?.right = nil
+                    curr = curr?.right
+                }
+            }
+
+        }
+    return res
+    }
+
+
+    func preOrderIterative(node: Tree<T>?) -> [T] {
+        var res: [T] = []
+        var curr = node
+        var stack = Array<Tree<T>>()
+        while curr != nil || stack.count > 0 {
+            while curr != nil {
+                res.append(curr!.value!)
+                if curr?.right != nil {
+                    stack.append(curr!.right!)
+                }
+                curr = curr?.left
+            }
+            if !stack.isEmpty {
+                curr = stack.removeLast()
+            }
+        }
+        return res
+    }
     /*
      Postorder traversal is a tree traversal method that follows the Left-Right-Root order:
 
@@ -351,6 +401,59 @@ class TreeImplementation<T: BinaryInteger> {
         postOrderRecusrsive(node: node.right)
         print(node.value)
     }
+
+
+    func postOrderMorris(node: Tree<T>?) -> [T]{
+        guard let node else {
+            return []
+        }
+        var curr:Tree<T>? = node
+        var res = [T]()
+
+        while let node = curr {
+            if node.right == nil {
+                // If ;eft is nil move to right after adding root in array
+
+                res.append(curr!.value!)
+                curr = curr?.left
+            } else {
+                var newNode = node.right
+                while newNode?.left != nil && newNode?.left !== curr {
+                    newNode = newNode?.left
+                }
+                if newNode?.left == nil {
+                    res.append(curr!.value!)
+                    newNode?.left = curr
+                    curr = curr?.right
+                } else {
+                    newNode?.left = nil
+                    curr = curr?.left
+                }
+            }
+
+        }
+        return Array(res.reversed())
+    }
+
+    func postOrderIterative<T>(_ root: Tree<T>?) -> [T] {
+        guard let root else { return [] }
+        var stack1: [Tree<T>] = [root]
+        var stack2: [Tree<T>] = []
+        var res: [T] = []
+
+        while let node = stack1.popLast() {
+            stack2.append(node)
+            if let left = node.left { stack1.append(left) }
+            if let right = node.right { stack1.append(right) }
+        }
+
+        while let node = stack2.popLast() {
+            res.append(node.value!)
+        }
+
+        return res
+    }
+
 }
 
 
@@ -363,6 +466,7 @@ root.left?.right = Tree<Int>.init(value: 5)
 let tree = TreeImplementation<Int>()
 tree.inorderRecursive(node: root)
 print("hello")
-print(tree.inOrderMorris(node: root))
-print(tree.inOrderIterative(node: root))
+tree.postOrderRecusrsive(node: root)
+print(tree.postOrderMorris(node: root))
+print(tree.postOrderIterative(root))
 
