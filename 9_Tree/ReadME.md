@@ -131,4 +131,22 @@ func levelOrder(_ root: TreeNode?) {
 * How **Level Order** is **BFS**
 * Swift implementations of each
 
+# BFS vs DFS
+
+## 🔹 What They Are
+- **BFS (Breadth-First Search)**  
+  Traverses the tree/graph **level by level**, starting from the root.
+
+- **DFS (Depth-First Search)**  
+  Traverses the tree/graph by going **deep along one branch** before backtracking.
+
 ---
+
+## 🔹 Data Structures Used
+- **BFS** → Queue (FIFO)  
+- **DFS** → Stack (LIFO) or recursion (implicit stack)
+
+---
+
+
+
