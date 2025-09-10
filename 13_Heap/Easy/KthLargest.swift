@@ -26,3 +26,19 @@ class Solution {
 TIME; O(N)
 Space: O(n)
 */
+class Solution {
+    func findKthLargest(_ nums: [Int], _ k: Int) -> Int {
+       var queue = Heap(nums)
+       for i in nums {
+        if queue.count > k {
+           queue.popMin()! 
+        }
+       }
+      return queue.popMin()!
+    }
+}
+
+/*
+TIME; O(N)
+Space: O(n)
+*/
