@@ -1,17 +1,21 @@
 // https://www.geeksforgeeks.org/problems/remove-duplicate-element-from-sorted-linked-list/1
 
 
-    func removeDuplicateFromSortedLinkedList() {
-        var node = head
-        while node != nil {
-            if node?.next?.value == node?.value {
-                // ur next will be its next
-                node?.next = node?.next?.next
+ class Solution {
+    func deleteDuplicates(_ head: ListNode?) -> ListNode? {
+        var current = head
+        
+        while let node = current {
+            if let next = node.next, next.val == node.val {
+                node.next = next.next
             } else {
-                node = node?.next
+                current = node.next
             }
         }
+        
+        return head
     }
+}
 
 
 /*
