@@ -1,0 +1,17 @@
+
+// https://leetcode.com/problems/rotate-array/
+class Solution {
+    func rotate(_ nums: inout [Int], _ k: Int) {
+         guard !nums.isEmpty else { return }
+        let k = k % nums.count
+        if k == 0 { return }
+
+        // Reverse first part
+        nums[0..<nums.count - k].reverse()
+        // Reverse second part
+        nums[nums.count - k..<nums.count].reverse()
+        // Reverse entire array
+        nums.reverse()
+        
+    }
+}
