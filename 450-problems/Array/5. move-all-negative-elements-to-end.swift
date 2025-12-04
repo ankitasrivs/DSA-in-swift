@@ -25,3 +25,25 @@ moveAllNegatives(arr: &arr)
 print(arr)
 // Time: O(n)
 //Space: O(n)
+
+
+func moveNegativesToEnd(_ arr: inout [Int]) {
+    var temp: [Int] = []
+    
+    // Collect positives first
+    for num in arr {
+        if num >= 0 {
+            temp.append(num)
+        }
+    }
+    
+    // Then collect negatives
+    for num in arr {
+        if num < 0 {
+            temp.append(num)
+        }
+    }
+    
+    // Write back
+    arr = temp
+}
